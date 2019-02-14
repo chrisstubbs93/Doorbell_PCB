@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index"],envversion:53,filenames:["index.rst"],objects:{},objnames:{},objtypes:{},terms:{hello:0,index:0,modul:0,page:0,print:0,search:0,thi:0},titles:["Lecturer Availability Door Announcer documentation"],titleterms:{announc:0,avail:0,document:0,door:0,indic:0,introduct:0,lectur:0,tabl:0,welcom:[]}})
