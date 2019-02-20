@@ -1,12 +1,11 @@
 //===========================Inclusions for ESP========================
 #include <WiFi.h>
 #include "Settings.h"
+#include "bitmaps.h"
 #include <HTTPClient.h>
 #include "SPIFFS.h"
 #include <FS.h>
 #include "NTPClient.h"
-
-
 
 
 #define NTP_OFFSET  19800 // In seconds
@@ -18,27 +17,14 @@
 #include <GxEPD.h>
 
 // select the display class to use, only one
-//#include <GxGDEP015OC1/GxGDEP015OC1.h>    // 1.54" b/w
-//#include <GxGDEW0154Z04/GxGDEW0154Z04.h>  // 1.54" b/w/r 200x200
-//#include <GxGDEW0154Z17/GxGDEW0154Z17.h>  // 1.54" b/w/r 152x152
-//#include <GxGDE0213B1/GxGDE0213B1.h>      // 2.13" b/w
-//#include <GxGDEW0213Z16/GxGDEW0213Z16.h>  // 2.13" b/w/r
 #include <GxGDEH029A1/GxGDEH029A1.h>      // 2.9" b/w
-//#include <GxGDEW029Z10/GxGDEW029Z10.h>    // 2.9" b/w/r
-//#include <GxGDEW027C44/GxGDEW027C44.h>    // 2.7" b/w/r
-//#include <GxGDEW027W3/GxGDEW027W3.h>      // 2.7" b/w
-//#include <GxGDEW042T2/GxGDEW042T2.h>      // 4.2" b/w
-//#include <GxGDEW042Z15/GxGDEW042Z15.h>    // 4.2" b/w/r
-//#include <GxGDEW0583T7/GxGDEW0583T7.h>    // 5.83" b/w
-//#include <GxGDEW075T8/GxGDEW075T8.h>      // 7.5" b/w
-//#include <GxGDEW075Z09/GxGDEW075Z09.h>    // 7.5" b/w/r
+
 
 #if !defined(_GxFont_GFX_TFT_eSPI_H_)
 // FreeFonts from Adafruit_GFX
 #include <Fonts/FreeMonoBold9pt7b.h>
 #include <Fonts/FreeMonoBold12pt7b.h>
-//#include <Fonts/FreeMonoBold18pt7b.h>
-//#include <Fonts/FreeMonoBold24pt7b.h>
+
 #endif
 #if defined(_ADAFRUIT_TF_GFX_H_)
 #include <Fonts/Open_Sans_Bold_12pt.h>
@@ -104,11 +90,12 @@ void setup() {
   Serial.println("[INFO] VCNL4010 test");
   initGPIO();
   display.init(); // enable diagnostic output on Serial 115200
+ 
   displayVersion();
 
   initFilesystem();
   fSettings.println("This is a test");
-  fSettings.println("Crankpipe");
+  fSettings.println("...");
   fSettings.close();
 
   fSettings = SPIFFS.open("/f.txt", "r");
@@ -328,12 +315,18 @@ void ring(const int bus)
   writeNames();
 }
 
-void displayVersion()
+void displayVersion() //Displays an LSBU splashscreen followed by a description/version no. splashscreen
 {
+  //set up parameters
   display.setRotation(1);
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
   display.setFont(font);
+  //show LSBU logo
+  display.drawBitmap(0, 0, BmpLSBU, 296, 128, GxEPD_BLACK);
+  display.update();
+  delay(5000);
+  //Show version
   display.setCursor(0, 0);
   display.println();
   display.println("Lecturer availability door");
