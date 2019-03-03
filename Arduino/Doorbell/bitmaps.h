@@ -1,3 +1,7 @@
+//================================bitmaps.h============================
+// Stores bitmap images for display in program memory
+//=====================================================================
+
 #if defined(ESP8266) || defined(ESP32)
 #include <pgmspace.h>
 #else
