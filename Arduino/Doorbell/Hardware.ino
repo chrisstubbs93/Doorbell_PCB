@@ -8,16 +8,17 @@
 long average[] =   {0, 0, 0, 0, 0, 0, 0, 0};
 long threshold[] = {0, 0, 0, 0, 0, 0, 0, 0};
 long reading[] =   {0, 0, 0, 0, 0, 0, 0, 0};
-int doorbells = 0;
 
 Adafruit_VCNL4010 vcnl;
 
 void initGPIO() {
+//Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused.
   pinMode(BTNAPIN, INPUT);
   pinMode(BTNBPIN, INPUT);
   pinMode(INTERRUPTPIN, INPUT);
   pinMode(BATTMONPIN, INPUT);
 
+  pinMatrixInDetach(VSPIQ_OUT_IDX, false, false); //detatch pin 19 from the VSPI MISO.
   pinMode(LEDAVAILPIN, OUTPUT);
   pinMode(LEDBUSYPIN, OUTPUT);
   pinMode(LEDOKPIN, OUTPUT);
@@ -27,9 +28,7 @@ void initGPIO() {
 void tcaselect(uint8_t i) { //sets the bus and checks it, retrying if it's not correct
   if (i > 7) return;
   do {
-    if (DEBUG_READINGS == 1) {
-      Serial.println((String)"[DEBUG] Selecting bus " + i);
-    }
+    if (DEBUG_READINGS == 1) Serial.println((String)"[DEBUG] Selecting bus " + i);
     Wire.beginTransmission(TCAADDR);
     Wire.write(1 << i);
     Wire.endTransmission();
@@ -52,6 +51,7 @@ void detectVCNLs() {
     tcaselect(bus);
     int trynum = 1;
     while (! vcnl.begin() && trynum < TRIES) {
+      if (DEBUG_READINGS == 1) Serial.println((String)"[DEBUG] Try " + trynum);
       trynum++;
       delay(100);
     }
@@ -68,6 +68,9 @@ void detectVCNLs() {
   }
   Serial.println("[INFO] Number of doorbells found: " + (String)doorbells);
   addToLog((String)doorbells + " sensors found.");
+  if (doorbells == 0) {
+    errorMsg("Hardware error.\nNo VCNL sesnors found.\nContact support.");
+  }
 }
 void calibrateVCNLs() {
   for (int bus = 0; bus < doorbells; bus++) {
@@ -92,6 +95,7 @@ void calibrateVCNLs() {
 void checkButtons() {
   if (digitalRead(BTNAPIN)) {
     Serial.println("[INFO] Button A Pressed");
+    showInfo();
     while (digitalRead(BTNAPIN)) {}
   }
   if (digitalRead(BTNBPIN)) {

@@ -16,6 +16,11 @@ void wifiTasks() {
 
 void ring(const int bus)
 {
+  if (lecturerStatus[bus] == "Availible") {
+    digitalWrite(LEDAVAILPIN, HIGH);
+  } else {
+    digitalWrite(LEDBUSYPIN, HIGH);
+  }
   display.setRotation(1);
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
@@ -43,6 +48,7 @@ void ring(const int bus)
       }
       if (httpCode == 200) {
         //success
+        digitalWrite(LEDOKPIN, HIGH);
         display.setRotation(1);
         display.fillScreen(GxEPD_WHITE);
         display.setTextColor(GxEPD_BLACK);
@@ -62,7 +68,14 @@ void ring(const int bus)
     ESP.restart();
   }
   delay(2000);
+  digitalWrite(LEDOKPIN, LOW);
+  digitalWrite(LEDAVAILPIN, LOW);
+  digitalWrite(LEDBUSYPIN, LOW);
   writeNames();
+}
+
+boolean connectWiFi() {
+  
 }
 
 boolean checkConnection() {
@@ -80,7 +93,13 @@ boolean checkConnection() {
     count++;
   }
   Serial.println();
-  errorMsg("WiFi connection timed out.");
+  errorMsg("WiFi connection timed out.\nTrying again in 30s.\nPress A to retry now.\nPress B to run setup.");
+  unsigned long tmr = millis();
+  while ((millis() - tmr < 300000)) {
+    if (digitalRead(BTNAPIN)) break;
+  }
+  
+  
   settingMode = true;
   return false;
 }
@@ -192,7 +211,7 @@ void handleRoot() {
     int hr = min / 60;
     char timestamp [100];
     snprintf(timestamp, 100, "%02d:%02d:%02d", hr, min % 60, sec % 60);
-
+    int vbatt = (float)(analogRead(BATTMONPIN) / 40.95);
     String temp = "<html>\
   <head>\
     <title>Lecturer availability door announcer</title>\
@@ -205,7 +224,8 @@ void handleRoot() {
     Final year BEng project by Chris Stubbs (2019)\
     <h2>Status</h2>\
     <p>Uptime: " + (String)timestamp + "</p>\
-    <p>Battery: " + (String)99 + "%</p>\
+    <p>Battery: " + (String)vbatt + "%</p>\
+    <p>Free heap (RAM): " + ESP.getFreeHeap() + " bytes.</p>\
     <h2>Settings</h2>\
 <form action='/savesettings.do' method='post'>\
 Sensor threshold: <input name='threshold' type='text' value='" + (String)thres + "'>\
@@ -239,6 +259,14 @@ Admin password: <input name='adminpw' type='text' value='" + www_password + "'>\
     <td><input name='l4key' type='text' value='" + lecturerIFTTkeys[3] + "'></td>\
     <td><input name='l5key' type='text' value='" + lecturerIFTTkeys[4] + "'></td>\
   </tr>\
+  <tr>\
+    <td>Status</td>\
+    <td>" + generateStatusDropdown(0) + "</td>\
+    <td>" + generateStatusDropdown(1) + "</td>\
+    <td>" + generateStatusDropdown(2) + "</td>\
+    <td>" + generateStatusDropdown(3) + "</td>\
+    <td>" + generateStatusDropdown(4) + "</td>\
+  </tr>\
 </table>\
 <input type='submit' value='Save'>\
 </form>\
@@ -248,6 +276,31 @@ Admin password: <input name='adminpw' type='text' value='" + www_password + "'>\
 </html>";
     webServer.send(200, "text/html", temp);
   }
+}
+
+String generateStatusDropdown(uint8_t n){
+  //Generates the HTML string for a status dropdown of the given lecturer number (n).
+  int num = n + 1;
+  String tmphtml = "";
+  tmphtml = "<select name='l" + (String)num + "status'>";
+  
+  tmphtml += "<option ";
+  if (lecturerStatus[n] == "Availible") tmphtml += "selected ";
+  tmphtml += "value='Availible'>Availible</option>";
+
+  tmphtml += "<option ";
+  if (lecturerStatus[n] == "Away") tmphtml += "selected ";
+  tmphtml += "value='Away'>Away</option>";
+
+  tmphtml += "<option ";
+  if (lecturerStatus[n] == "Busy") tmphtml += "selected ";
+  tmphtml += "value='Busy'>Busy</option>";
+
+  tmphtml += "<option ";
+  if (lecturerStatus[n] == "") tmphtml += "selected ";
+  tmphtml += "value=''></option>";
+
+  return tmphtml;
 }
 
 void saveSettings() {
@@ -269,6 +322,11 @@ void saveSettings() {
     lecturerIFTTkeys[2] = webServer.arg("l3key");
     lecturerIFTTkeys[3] = webServer.arg("l4key");
     lecturerIFTTkeys[4] = webServer.arg("l5key");
+    lecturerStatus[0] = webServer.arg("l1status");
+    lecturerStatus[1] = webServer.arg("l2status");
+    lecturerStatus[2] = webServer.arg("l3status");
+    lecturerStatus[3] = webServer.arg("l4status");
+    lecturerStatus[4] = webServer.arg("l5status");
     String out = "";
     out += "Saved!\n";
     out += "<a href='/'>Go back</a>\n";

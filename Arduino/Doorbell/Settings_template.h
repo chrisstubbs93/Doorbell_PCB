@@ -19,10 +19,10 @@ float thres = 2; //Threshold for sensor
 #define BTNAPIN 34
 #define BTNBPIN 35
 #define INTERRUPTPIN 32
-#define LEDAVAILPIN 31
-#define LEDBUSYPIN 28
-#define LEDOKPIN 24
-#define LEDERRPIN 16
+#define LEDAVAILPIN 19
+#define LEDBUSYPIN 17
+#define LEDOKPIN 2
+#define LEDERRPIN 13
 #define BATTMONPIN 33
 
 //==========================Definitions for VCNL=======================

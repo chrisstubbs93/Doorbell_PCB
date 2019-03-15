@@ -5,8 +5,13 @@
 void initFS(){
     Serial.println("[INFO] Mounting filesystem...");
   if (!SPIFFS.begin()) {
-    Serial.println("[ERROR] Failed to mount file system");
-    return;
+    errorMsg("Failed to mount file sys.\nAttempting to format.\nThis is normal for 1st use.\nPlease wait 30 seconds.");
+    SPIFFS.format();
+    if (SPIFFS.begin()) {
+      Serial.println("[INFO] SPIFFS format complete");
+    } else{
+      return;
+    }
   }
   delay(10);
 }
@@ -14,7 +19,7 @@ void initFS(){
 bool loadConfig() {
   File configFile = SPIFFS.open("/config.json", "r");
   if (!configFile) {
-    errorMsg(" Failed to open config file");
+    errorMsg("Failed to open config file");
     settingMode = true;
     return false;
   }
@@ -29,7 +34,7 @@ bool loadConfig() {
   StaticJsonBuffer<5000> jsonBuffer;
   JsonObject& json = jsonBuffer.parseObject(buf.get());
   if (!json.success()) {
-    errorMsg("Failed to parse config file");
+    errorMsg("Failed to parse cfg file.\nThis is normal for 1st use.");
     settingMode = true;
     return false;
   }
