@@ -12,7 +12,7 @@ long reading[] =   {0, 0, 0, 0, 0, 0, 0, 0};
 Adafruit_VCNL4010 vcnl;
 
 void initGPIO() {
-//Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused.
+  //Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused.
   pinMode(BTNAPIN, INPUT);
   pinMode(BTNBPIN, INPUT);
   pinMode(INTERRUPTPIN, INPUT);
@@ -23,6 +23,18 @@ void initGPIO() {
   pinMode(LEDBUSYPIN, OUTPUT);
   pinMode(LEDOKPIN, OUTPUT);
   pinMode(LEDERRPIN, OUTPUT);
+}
+
+void setVCOM(unsigned char d) {
+  //Set the VCOM. This isn't normally needed unless the ePaper is particularly bad.
+  digitalWrite(4, LOW);
+  digitalWrite(15, LOW);
+  SPI.transfer(0x2C); //Write VCOM register
+  digitalWrite(15, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(15, LOW);
+  SPI.transfer(d);
+  digitalWrite(15, HIGH);
 }
 
 void tcaselect(uint8_t i) { //sets the bus and checks it, retrying if it's not correct
@@ -105,6 +117,7 @@ void checkButtons() {
 }
 
 void scanVCNLs() {
+  if (settingMode) return;
   for (int bus = 0; bus < doorbells; bus++) {
     tcaselect(bus);
     vcnl.setLEDcurrent(LEDCURR); //Set IR LED on to take measurement

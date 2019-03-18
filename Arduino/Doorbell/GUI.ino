@@ -49,8 +49,30 @@ void errorMsg(String ermsg)
   display.println("!!!----!!! Error !!!----!!!");
   display.println(ermsg);
   display.update();
-  delay(10000);
+  unsigned long tmr = millis();
+  while ((millis() - tmr < 5000)) {
+    if (digitalRead(BTNAPIN)) break; //allow button press to dismiss error
+    if (digitalRead(BTNBPIN)) break;
+  }
   digitalWrite(LEDERRPIN, LOW);
+}
+
+void setupMsg(String apSSID)
+{
+  Serial.println((String)"[INFO] Starting config access point named " + apSSID);
+  Serial.println((String)"[INFO] Starting config web server at " + WiFi.softAPIP().toString());
+  display.setRotation(1);
+  display.fillScreen(GxEPD_WHITE);
+  display.setTextColor(GxEPD_BLACK);
+  display.setFont(font);
+  display.setCursor(0, 14);
+  display.println("------- Config Mode -------");
+  display.println("Scan for access points");
+  display.println("and connect to " + apSSID + ".");
+  display.println();
+  display.println("Go to " + WiFi.softAPIP().toString());
+  display.println("to set up.");
+  display.update();
 }
 
 void writeNames()
@@ -70,10 +92,11 @@ void writeNames()
     display.println(lecturerStatus[i]);
   }
   display.setCursor(0, 123);
-  //display.println("              Updated ");
 
   //Draw battery icon and percentage
-  int vbatt = (float)(analogRead(BATTMONPIN) / 40.95);
+  float VBAT = ((200.0f / 100.0f) * 3.30f * float(analogRead(BATTMONPIN)) / 4095.0f) + 0.2f; // LiPo battery
+  int vbatt = (float)((100.0f / 4.2f) * VBAT);
+  Serial.print("[INFO] Battery Voltage = "); Serial.print(VBAT, 2); Serial.println(" V");
   display.drawRect(1, 113, 30, 13, GxEPD_BLACK);
   display.drawRect(2, 114, 28, 11, GxEPD_BLACK);
   display.fillRect(31, 116, 3, 7, GxEPD_BLACK);
@@ -113,47 +136,60 @@ void clearLog()
 
 void showInfo() {
   //set up parameters
-  display.setRotation(1);
-  display.fillScreen(GxEPD_WHITE);
-  display.setTextColor(GxEPD_BLACK);
-  display.setFont(font);
-  display.fillScreen(GxEPD_WHITE);
-  display.setCursor(0, 14);
-  display.println((String)"FW Revision: " + (String)VERSION);
-  display.println("IP addr: " + WiFi.localIP().toString());
-  display.println("Connected to " + ssid);
-  display.println((String)doorbells + " sensors found");
-  display.println();
-  display.println();
-  display.println("[A]-Close  [B]-Reset");
-  display.update();
-  while (digitalRead(BTNAPIN)) {}
-  unsigned long tmr = millis();
-  while ((millis() - tmr < 600000)) {
-    if (digitalRead(BTNAPIN)) break;
-    if (digitalRead(BTNBPIN)) {
-      while (digitalRead(BTNBPIN)) {}
-      display.fillScreen(GxEPD_WHITE);
-      Serial.println("Are you sure you want to\nreset this device?");
-      display.setCursor(0, 14);
-      display.println("Are you sure you want to");
-      display.println("reset this device?");
-      display.println();
-      display.println("All settings will be lost.");
-      display.println();
-      display.println("[A]-No");
-      display.println("[B]-Yes (hold for 5 sec)");
-      display.update();
+  bool shown = false;
+  while (!shown) {
+    display.setRotation(1);
+    display.fillScreen(GxEPD_WHITE);
+    display.setTextColor(GxEPD_BLACK);
+    display.setFont(font);
+    display.fillScreen(GxEPD_WHITE);
+    display.setCursor(0, 14);
+    display.println((String)"FW Revision: " + (String)VERSION);
+    display.println("IP addr: " + WiFi.localIP().toString());
+    display.println("Connected to " + ssid);
+    display.println((String)doorbells + " sensors found");
+    display.println();
+    display.println();
+    display.println("[A]-Close  [B]-Reset");
+    display.update();
+    shown = true;
+    while (digitalRead(BTNAPIN)) {}
+    unsigned long tmr = millis();
+    while ((millis() - tmr < 60000)) {
+      wifiTasks();//Run WiFi background tasks while waiting
       if (digitalRead(BTNAPIN)) break;
-      while (1) {
-        unsigned long tmr = millis();
-        while (digitalRead(BTNBPIN)) {
-          if ((millis() - tmr < 50000)) {
-            ESP.restart();
+      if (digitalRead(BTNBPIN)) {
+        while (digitalRead(BTNBPIN)) {}
+        display.fillScreen(GxEPD_WHITE);
+        Serial.println("Are you sure you want to\nreset this device?");
+        display.setCursor(0, 14);
+        display.println("Are you sure you want to");
+        display.println("reset this device?");
+        display.println();
+        display.println("All settings will be lost.");
+        display.println();
+        display.println("[A]-No");
+        display.println("[B]-Yes (hold for 5 sec)");
+        display.update();
+        if (digitalRead(BTNAPIN)) break;
+        while (1) {
+          if (digitalRead(BTNAPIN)) {
+            shown = false;
+            break;
+          }
+          if (digitalRead(BTNBPIN)) {
+            unsigned long tmr2 = millis();
+            while (digitalRead(BTNBPIN)) {
+              if ((millis() - tmr2 > 5000)) {
+                //Clear settings and restart
+                SPIFFS.remove("/config.json");
+                delay(1000);
+                ESP.restart();
+              }
+            }
           }
         }
       }
-      if (digitalRead(BTNBPIN)) ESP.restart();
     }
   }
   writeNames();

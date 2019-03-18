@@ -2,7 +2,7 @@
 // Main file for the Lecturer Availability Door Announcer final year BEng project by Chris Stubbs.
 //=====================================================================
 
-#define VERSION "0.4"//update when comitted to github
+#define VERSION "0.5"//update when comitted to github
 
 #include <WiFi.h>
 #include <DNSServer.h>
@@ -40,28 +40,14 @@ void setup() {
   displayVersion();
   initFS();
   if (loadConfig()) {
-    if (EAP_IDENTITY == "") {
-      //if wpa2-psk
-      Serial.println((String)"[INFO] WPA2-PSK mode.");
-      WiFi.begin(ssid.c_str(), wifipsk.c_str());
-    } else {
-      //if eduroam
-      Serial.println((String)"[INFO] WPA2-Enterprise mode.");
-      WiFi.disconnect(true);
-      WiFi.mode(WIFI_STA);
-      const unsigned char* EAP_IDENTITY_A = reinterpret_cast<const unsigned char *>( EAP_IDENTITY.c_str() ); //convert strings to unsigned char for enterprise functions
-      const unsigned char* EAP_PASSWORD_A = reinterpret_cast<const unsigned char *>( EAP_PASSWORD.c_str() );
-      esp_wifi_sta_wpa2_ent_set_username(EAP_IDENTITY_A, strlen(EAP_IDENTITY.c_str())); //set enterprise wifi parameters
-      esp_wifi_sta_wpa2_ent_set_password(EAP_PASSWORD_A, strlen(EAP_PASSWORD.c_str()));
-      esp_wpa2_config_t config = WPA2_CONFIG_INIT_DEFAULT(); //set config settings to default
-      esp_wifi_sta_wpa2_ent_enable(&config); //enable enterprise mode
-      WiFi.begin(ssid.c_str(), wifipsk.c_str()); //connect to AP
-    }
-    if (checkConnection()) {
+    //Config loaded OK. Try to connect to WiFi.
+    if (connectWiFi()){
+      //WiFi connected OK. Start config web server and continue boot.
       startWebServer();
     } else {
+      //WiFi failed to connect. Start setup mode and abort boot.
       setupMode();
-      return; //abort boot to carry out initial setup wizard
+      return;
     }
   }
   else {

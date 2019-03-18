@@ -75,14 +75,62 @@ void ring(const int bus)
 }
 
 boolean connectWiFi() {
-  
+  int connAttempts = 0;
+  while (connAttempts < 3) {
+    connAttempts++;
+    if (EAP_IDENTITY == "") {
+      //if wpa2-psk is configured
+      Serial.println((String)"[INFO] WPA2-PSK mode.");
+      WiFi.begin(ssid.c_str(), wifipsk.c_str());
+    } else {
+      //if eduroam  is configured
+      Serial.println((String)"[INFO] WPA2-Enterprise mode.");
+      WiFi.disconnect(true);
+      WiFi.mode(WIFI_STA);
+      const unsigned char* EAP_IDENTITY_A = reinterpret_cast<const unsigned char *>( EAP_IDENTITY.c_str() ); //convert strings to unsigned char for enterprise functions
+      const unsigned char* EAP_PASSWORD_A = reinterpret_cast<const unsigned char *>( EAP_PASSWORD.c_str() );
+      esp_wifi_sta_wpa2_ent_set_username(EAP_IDENTITY_A, strlen(EAP_IDENTITY.c_str())); //set enterprise wifi parameters
+      esp_wifi_sta_wpa2_ent_set_password(EAP_PASSWORD_A, strlen(EAP_PASSWORD.c_str()));
+      esp_wpa2_config_t config = WPA2_CONFIG_INIT_DEFAULT(); //set config settings to default
+      esp_wifi_sta_wpa2_ent_enable(&config); //enable enterprise mode
+      WiFi.begin(ssid.c_str(), wifipsk.c_str()); //connect to AP
+    }
+    Serial.print("[INFO] Connecting to " + ssid + ". Attempt " + connAttempts);
+    addToLog("Conn to. " + ssid);
+    if (checkConnection()) {
+      return true; //Connected OK.
+    } else {
+      //Connection failed. Try again.
+      if (connAttempts == 3) {
+        //Display last attempt error
+        errorMsg("WiFi connection timed out.\nThis is attempt " + (String)connAttempts + "/3.\nAborting connection.\nEntering setup mode.");
+      } else {
+        //Display retry error
+        errorMsg("WiFi connection timed out.\nThis is attempt " + (String)connAttempts + "/3.\nTrying again in 30s.\nPress [A] to retry now.\nPress [B] to run setup.");
+        unsigned long tmr = millis();
+        while ((millis() - tmr < 30000)) {
+          if (digitalRead(BTNAPIN)) {
+            //User requested retry
+            if (connAttempts == 3) connAttempts = 2; //Manually allow one more try if on last try.
+            break;
+          }
+          if (digitalRead(BTNBPIN)) {
+            //User requested setup mode
+            settingMode = true;
+            return false;
+          }
+        }
+      }
+      settingMode = true;
+    }
+  }
+  //Failed to connect after 3 attempts.
+  return false;
 }
 
 boolean checkConnection() {
   int count = 0;
-  Serial.print("[INFO] Connecting to " + ssid);
-  addToLog("Conn to. " + ssid);
-  while ( count < 30 ) {
+  while ( count < 15 ) {
     if (WiFi.status() == WL_CONNECTED) {
       Serial.println("\n[INFO] Connected!");
       settingMode = false;
@@ -93,23 +141,12 @@ boolean checkConnection() {
     count++;
   }
   Serial.println();
-  errorMsg("WiFi connection timed out.\nTrying again in 30s.\nPress A to retry now.\nPress B to run setup.");
-  unsigned long tmr = millis();
-  while ((millis() - tmr < 300000)) {
-    if (digitalRead(BTNAPIN)) break;
-  }
-  
-  
-  settingMode = true;
   return false;
 }
 
 void startWebServer() {
   if (settingMode) { //Set up webserver to serve captive portal for wifi setup wizard
-    Serial.println((String)"[INFO] Starting Web Server at " + WiFi.softAPIP().toString());
-    clearLog();
-    addToLog((String)"Join " + apSSID + " and go to");
-    addToLog((String)WiFi.softAPIP().toString() + " to set up.");
+    setupMsg(apSSID); //Display setup screen
     webServer.on("/settings", handleSettings);
     webServer.on("/eduroam", handleEduroam);
     webServer.on("/setap", handleSetAP);
@@ -128,6 +165,7 @@ void startWebServer() {
 }
 
 void setupMode() {
+  //Disconnect any connections and scan for AP's
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
   delay(100);
@@ -142,14 +180,16 @@ void setupMode() {
     ssidList += "</option>";
   }
   delay(100);
+  //Create config AP
   WiFi.mode(WIFI_AP);
   delay(250);
   WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
-  delay(100);
+  delay(250);
   WiFi.softAP(apSSID);
-  delay(100);
+  delay(250);
   dnsServer.setErrorReplyCode(DNSReplyCode::NoError);
   dnsServer.start(53, "*", apIP);
+  Serial.println((String)"[INFO] DNS server started");
   startWebServer();
   Serial.println((String)"[INFO] Starting Access Point at " + apSSID);
 }
@@ -211,7 +251,8 @@ void handleRoot() {
     int hr = min / 60;
     char timestamp [100];
     snprintf(timestamp, 100, "%02d:%02d:%02d", hr, min % 60, sec % 60);
-    int vbatt = (float)(analogRead(BATTMONPIN) / 40.95);
+    float VBAT = ((200.0f/100.0f) * 3.30f * float(analogRead(BATTMONPIN)) / 4095.0f)+0.2f;  // LiPo battery
+    int vbatt = (float)((100.0f/4.2f)*VBAT);
     String temp = "<html>\
   <head>\
     <title>Lecturer availability door announcer</title>\
@@ -224,7 +265,7 @@ void handleRoot() {
     Final year BEng project by Chris Stubbs (2019)\
     <h2>Status</h2>\
     <p>Uptime: " + (String)timestamp + "</p>\
-    <p>Battery: " + (String)vbatt + "%</p>\
+    <p>Battery: " + (String)vbatt + "%, " + (String)VBAT + "V</p>\
     <p>Free heap (RAM): " + ESP.getFreeHeap() + " bytes.</p>\
     <h2>Settings</h2>\
 <form action='/savesettings.do' method='post'>\
@@ -278,12 +319,12 @@ Admin password: <input name='adminpw' type='text' value='" + www_password + "'>\
   }
 }
 
-String generateStatusDropdown(uint8_t n){
+String generateStatusDropdown(uint8_t n) {
   //Generates the HTML string for a status dropdown of the given lecturer number (n).
   int num = n + 1;
   String tmphtml = "";
   tmphtml = "<select name='l" + (String)num + "status'>";
-  
+
   tmphtml += "<option ";
   if (lecturerStatus[n] == "Availible") tmphtml += "selected ";
   tmphtml += "value='Availible'>Availible</option>";
