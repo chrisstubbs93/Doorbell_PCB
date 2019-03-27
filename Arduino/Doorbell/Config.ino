@@ -2,14 +2,14 @@
 // Handles SPIFFS filesystem, loading of configuration files, saving of configuration files.
 //=====================================================================
 
-void initFS(){
-    Serial.println("[INFO] Mounting filesystem...");
+void initFS() {
+  Serial.println("[INFO] Mounting filesystem...");
   if (!SPIFFS.begin()) {
     errorMsg("Failed to mount file sys.\nAttempting to format.\nThis is normal for 1st use.\nPlease wait 30 seconds.");
     SPIFFS.format();
     if (SPIFFS.begin()) {
       Serial.println("[INFO] SPIFFS format complete");
-    } else{
+    } else {
       return;
     }
   }
@@ -47,6 +47,7 @@ bool loadConfig() {
   www_password = (const char*)json["www_password"];
   room = (const char*)json["room"];
   thres = json["thres"];
+  busyNotif = json["busyNotif"];
 
   //Restore lecturer details
   for (int i = 0; i < 5; i++) {
@@ -72,6 +73,7 @@ bool saveConfig() {
   json["www_password"] = www_password;
   json["room"] = room;
   json["thres"] = thres;
+  json["busyNotif"] = busyNotif;
 
   //Store lecturer details
   JsonObject& jsonLecNames = jsonBuffer.createObject();
@@ -97,4 +99,24 @@ bool saveConfig() {
   }
   json.printTo(configFile);
   return true;
+}
+
+String rot(String in) {
+  String out;
+  for (int i = 0; i < in.length(); ++i) {
+    if (isalpha(in[i])) {
+      if (in[i] >= 'a' && in[i] <= 'm') {
+        out += char(in[i] + 13);
+      } else if (in[i] >= 'n' && in[i] <= 'z') {
+        out += char(in[i] - 13);
+      } else if (in[i] >= 'A' && in[i] <= 'M') {
+        out += char(in[i] + 13);
+      } else if (in[i] >= 'N' && in[i] <= 'Z') {
+        out += char(in[i] - 13);
+      }
+    } else {
+      out += char(in[i]);
+    }
+  }
+  return out;
 }

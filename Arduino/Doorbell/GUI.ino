@@ -194,3 +194,16 @@ void showInfo() {
   }
   writeNames();
 }
+
+String wordWrap(String in) {
+  if (in.length() > 27) {
+    for (int i = 27; i > 1; i--) { //work backwards from limit of string to first space
+      if (in.charAt(i) == ' ') {
+        return (in.substring(0, i) + "\n" + in.substring(i + 1, in.length())); //there is a space to replace with a line break
+      }
+    }
+    return in; //There were no spaces to replace, return plain string
+  } else {
+    return in; //String will fit on screen, return plain string
+  }
+}

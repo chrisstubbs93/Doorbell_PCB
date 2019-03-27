@@ -16,62 +16,83 @@ void wifiTasks() {
 
 void ring(const int bus)
 {
-  if (lecturerStatus[bus] == "Availible") {
+  if (lecturerStatus[bus] == "Available") {
     digitalWrite(LEDAVAILPIN, HIGH);
   } else {
     digitalWrite(LEDBUSYPIN, HIGH);
   }
-  display.setRotation(1);
-  display.fillScreen(GxEPD_WHITE);
-  display.setTextColor(GxEPD_BLACK);
-  display.setFont(font);
-  display.setCursor(0, 16 * 4);
-  display.print("Contacting "); display.print(lecturerNames[bus]); display.println("...");
-  display.update();
-  if ((WiFi.status() == WL_CONNECTED)) {
-    HTTPClient http;
-    Serial.println((String)"[INFO] HTTP Req: https://maker.ifttt.com/trigger/" + room + "/with/key/" + lecturerIFTTkeys[bus]);
-    http.begin((String)"https://maker.ifttt.com/trigger/" + room + "/with/key/" + lecturerIFTTkeys[bus]);
-    int httpCode = http.GET();
-    if (httpCode > 0) {
-      String payload = http.getString();
-      Serial.println((String)"[INFO] httpCode: " + httpCode);
-      Serial.println((String)"[INFO] payload: " + payload);
-      if (httpCode != 200) {
-        //Error communicating with IFTTT service.
-        if (httpCode == 302) {
-          //"Temporarily moved" (common error for no key)
-          errorMsg("Error communicating with \nIFTTT.\n\nDid you set the room and\nlecturer key?");
+  if (lecturerStatus[bus] == "Available" or busyNotif)
+  {
+    display.setRotation(1);
+    display.fillScreen(GxEPD_WHITE);
+    display.setTextColor(GxEPD_BLACK);
+    display.setFont(font);
+    display.setCursor(0, 16 * 4);
+    display.print("Contacting "); display.print(lecturerNames[bus]); display.println("...");
+    display.update();
+    if ((WiFi.status() == WL_CONNECTED)) {
+      HTTPClient http;
+      Serial.println((String)"[INFO] HTTP Req: https://maker.ifttt.com/trigger/" + room + "/with/key/" + lecturerIFTTkeys[bus]);
+      http.begin((String)"https://maker.ifttt.com/trigger/" + room + "/with/key/" + lecturerIFTTkeys[bus]);
+      int httpCode = http.GET();
+      if (httpCode > 0) {
+        String payload = http.getString();
+        Serial.println((String)"[INFO] httpCode: " + httpCode);
+        Serial.println((String)"[INFO] payload: " + payload);
+        if (httpCode != 200) {
+          //Error communicating with IFTTT service.
+          if (httpCode == 302) {
+            //"Temporarily moved" (common error for no key)
+            errorMsg("Error communicating with \nIFTTT.\n\nDid you set the room and\nlecturer key?");
+          }
+          errorMsg("Error communicating with IFTTT " + (String)httpCode + " " + payload);
+          errorMsg("Req: " + (String)"https://maker.ifttt.com/trigger/" + room + "/with/key/" + lecturerIFTTkeys[bus]);
         }
-        errorMsg("Error communicating with IFTTT " + (String)httpCode + " " + payload);
-        errorMsg("Req: " + (String)"https://maker.ifttt.com/trigger/" + room + "/with/key/" + lecturerIFTTkeys[bus]);
+        if (httpCode == 200) {
+          //success
+          digitalWrite(LEDOKPIN, HIGH);
+          display.setRotation(1);
+          display.fillScreen(GxEPD_WHITE);
+          display.setTextColor(GxEPD_BLACK);
+          display.setFont(font);
+          display.setCursor(0, 16 * 4);
+          if (lecturerStatus[bus] == "Available") {
+            display.print(lecturerNames[bus]); display.println(" has been notified.");
+          } else {
+            display.print(lecturerNames[bus]); display.println(" has been notified, but may be busy.");
+          }
+          display.update();
+        }
       }
-      if (httpCode == 200) {
-        //success
-        digitalWrite(LEDOKPIN, HIGH);
-        display.setRotation(1);
-        display.fillScreen(GxEPD_WHITE);
-        display.setTextColor(GxEPD_BLACK);
-        display.setFont(font);
-        display.setCursor(0, 16 * 4);
-        display.print(lecturerNames[bus]); display.println(" has been notified.");
-        display.update();
+      else {
+        errorMsg("Unknown error in HTTP request.");
       }
+      http.end(); //Free the resources
+    } else {
+      errorMsg("Wifi not connected. Restarting in 30 seconds.");
+      delay(30000);
+      ESP.restart();
     }
-    else {
-      errorMsg("Unknown error in HTTP request.");
-    }
-    http.end(); //Free the resources
+    delay(5000);
+    digitalWrite(LEDOKPIN, LOW);
+    digitalWrite(LEDAVAILPIN, LOW);
+    digitalWrite(LEDBUSYPIN, LOW);
+    writeNames();
   } else {
-    errorMsg("Wifi not connected. Restarting in 30 seconds.");
-    delay(30000);
-    ESP.restart();
+    display.setRotation(1);
+    display.fillScreen(GxEPD_WHITE);
+    display.setTextColor(GxEPD_BLACK);
+    display.setFont(font);
+    display.setCursor(0, 16 * 4);
+    display.println(wordWrap((String)lecturerNames[bus] + " is busy/away."));
+    display.println("Please try again later.");
+    display.update();
+    delay(3000);
+    digitalWrite(LEDOKPIN, LOW);
+    digitalWrite(LEDAVAILPIN, LOW);
+    digitalWrite(LEDBUSYPIN, LOW);
+    writeNames();
   }
-  delay(2000);
-  digitalWrite(LEDOKPIN, LOW);
-  digitalWrite(LEDAVAILPIN, LOW);
-  digitalWrite(LEDBUSYPIN, LOW);
-  writeNames();
 }
 
 boolean connectWiFi() {
@@ -81,19 +102,19 @@ boolean connectWiFi() {
     if (EAP_IDENTITY == "") {
       //if wpa2-psk is configured
       Serial.println((String)"[INFO] WPA2-PSK mode.");
-      WiFi.begin(ssid.c_str(), wifipsk.c_str());
+      WiFi.begin(ssid.c_str(), rot(wifipsk).c_str());
     } else {
       //if eduroam  is configured
       Serial.println((String)"[INFO] WPA2-Enterprise mode.");
       WiFi.disconnect(true);
       WiFi.mode(WIFI_STA);
-      const unsigned char* EAP_IDENTITY_A = reinterpret_cast<const unsigned char *>( EAP_IDENTITY.c_str() ); //convert strings to unsigned char for enterprise functions
-      const unsigned char* EAP_PASSWORD_A = reinterpret_cast<const unsigned char *>( EAP_PASSWORD.c_str() );
-      esp_wifi_sta_wpa2_ent_set_username(EAP_IDENTITY_A, strlen(EAP_IDENTITY.c_str())); //set enterprise wifi parameters
-      esp_wifi_sta_wpa2_ent_set_password(EAP_PASSWORD_A, strlen(EAP_PASSWORD.c_str()));
+      const unsigned char* EAP_IDENTITY_A = reinterpret_cast<const unsigned char *>( rot(EAP_IDENTITY).c_str() ); //convert strings to unsigned char for enterprise functions
+      const unsigned char* EAP_PASSWORD_A = reinterpret_cast<const unsigned char *>( rot(EAP_PASSWORD).c_str() );
+      esp_wifi_sta_wpa2_ent_set_username(EAP_IDENTITY_A, strlen(rot(EAP_IDENTITY).c_str())); //set enterprise wifi parameters
+      esp_wifi_sta_wpa2_ent_set_password(EAP_PASSWORD_A, strlen(rot(EAP_PASSWORD).c_str()));
       esp_wpa2_config_t config = WPA2_CONFIG_INIT_DEFAULT(); //set config settings to default
       esp_wifi_sta_wpa2_ent_enable(&config); //enable enterprise mode
-      WiFi.begin(ssid.c_str(), wifipsk.c_str()); //connect to AP
+      WiFi.begin(ssid.c_str(), rot(wifipsk).c_str()); //connect to AP
     }
     Serial.print("[INFO] Connecting to " + ssid + ". Attempt " + connAttempts);
     addToLog("Conn to. " + ssid);
@@ -251,8 +272,8 @@ void handleRoot() {
     int hr = min / 60;
     char timestamp [100];
     snprintf(timestamp, 100, "%02d:%02d:%02d", hr, min % 60, sec % 60);
-    float VBAT = ((200.0f/100.0f) * 3.30f * float(analogRead(BATTMONPIN)) / 4095.0f)+0.2f;  // LiPo battery
-    int vbatt = (float)((100.0f/4.2f)*VBAT);
+    float VBAT = ((200.0f / 100.0f) * 3.30f * float(analogRead(BATTMONPIN)) / 4095.0f) + 0.2f; // LiPo battery
+    int vbatt = (float)((100.0f / 4.2f) * VBAT);
     String temp = "<html>\
   <head>\
     <title>Lecturer availability door announcer</title>\
@@ -270,6 +291,8 @@ void handleRoot() {
     <h2>Settings</h2>\
 <form action='/savesettings.do' method='post'>\
 Sensor threshold: <input name='threshold' type='text' value='" + (String)thres + "'>\
+<br /><br />\
+Notify lecturer on ring even if they are busy?: <input name='busyNotif' type='checkbox'" + ((busyNotif) ? (" checked") : ("")) + ">\
 <br /><br />\
 Room name: <input name='room' type='text' value='" + room + "'>\
 <br /><br />\
@@ -326,8 +349,8 @@ String generateStatusDropdown(uint8_t n) {
   tmphtml = "<select name='l" + (String)num + "status'>";
 
   tmphtml += "<option ";
-  if (lecturerStatus[n] == "Availible") tmphtml += "selected ";
-  tmphtml += "value='Availible'>Availible</option>";
+  if (lecturerStatus[n] == "Available") tmphtml += "selected ";
+  tmphtml += "value='Available'>Available</option>";
 
   tmphtml += "<option ";
   if (lecturerStatus[n] == "Away") tmphtml += "selected ";
@@ -351,6 +374,7 @@ void saveSettings() {
   }
   else {
     room = webServer.arg("room");
+    busyNotif = (webServer.arg("busyNotif") == "on"); //true if checked
     thres = webServer.arg("threshold").toFloat();
     www_password = webServer.arg("adminpw");
     lecturerNames[0] = webServer.arg("l1name");
@@ -440,9 +464,9 @@ void handleEduroam() {
 }
 void handleSetAP() {
   ssid = urlDecode(webServer.arg("ssid"));
-  wifipsk = urlDecode(webServer.arg("pass"));
-  EAP_IDENTITY = urlDecode(webServer.arg("eapidentity"));
-  EAP_PASSWORD = urlDecode(webServer.arg("eappass"));
+  wifipsk = rot(urlDecode(webServer.arg("pass")));
+  EAP_IDENTITY = rot(urlDecode(webServer.arg("eapidentity")));
+  EAP_PASSWORD = rot(urlDecode(webServer.arg("eappass")));
   saveConfig();
 
   String s = "<h1>Setup complete.</h1><p>Device will be connected to \"";

@@ -2,7 +2,7 @@
 // Main file for the Lecturer Availability Door Announcer final year BEng project by Chris Stubbs.
 //=====================================================================
 
-#define VERSION "0.5"//update when comitted to github
+#define VERSION "0.6"//update when comitted to github
 
 #include <WiFi.h>
 #include <DNSServer.h>

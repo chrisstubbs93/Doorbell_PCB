@@ -1,8 +1,8 @@
 //Rename this file to Settings.h
 
 //=========================Variables for wifi==========================
-String ssid     = "name"; //Set to EDUROAM for eduroam
-String wifipsk = "key";
+String ssid     = ""; //Set to EDUROAM for eduroam
+String wifipsk = "";
 String EAP_IDENTITY = ""; //if connecting from another corporation, use identity@organisation.domain in Eduroam
 String EAP_PASSWORD = ""; //your Eduroam password
 String www_username = "admin";
@@ -12,8 +12,9 @@ String www_password = "esp32";
 String room = "T815";
 String lecturerNames[5] = { "Name1", "Name2", "Name3", "", ""};
 String lecturerIFTTkeys[5] = { "Key1", "Key2", "Key3", "", ""};
-String lecturerStatus[5] = { "Availible", "Away", "Busy", "", ""};
+String lecturerStatus[5] = { "Available", "Away", "Busy", "", ""};
 float thres = 2; //Threshold for sensor
+bool busyNotif = false; //notify lecturer anyway if they are busy?
 
 //======================Definitions for hardware=======================
 #define BTNAPIN 34
