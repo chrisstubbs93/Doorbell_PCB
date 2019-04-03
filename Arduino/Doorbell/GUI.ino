@@ -91,7 +91,8 @@ void writeNames()
     display.setCursor(190, 35 + (16 * i));
     display.println(lecturerStatus[i]);
   }
-  display.setCursor(0, 123);
+  display.setCursor(270, 122);
+  if (sleeping) display.println("Zz");
 
   //Draw battery icon and percentage
   float VBAT = ((200.0f / 100.0f) * 3.30f * float(analogRead(BATTMONPIN)) / 4095.0f) + 0.2f; // LiPo battery

@@ -15,6 +15,8 @@ String lecturerIFTTkeys[5] = { "Key1", "Key2", "Key3", "", ""};
 String lecturerStatus[5] = { "Available", "Away", "Busy", "", ""};
 float thres = 2; //Threshold for sensor
 bool busyNotif = false; //notify lecturer anyway if they are busy?
+bool powerSave = false; //Enter power saving mode after inactivity?
+int sleepDelay = 15; //Period of inactivity in mins before entering power save mode
 
 //======================Definitions for hardware=======================
 #define BTNAPIN 34
@@ -25,6 +27,7 @@ bool busyNotif = false; //notify lecturer anyway if they are busy?
 #define LEDOKPIN 2
 #define LEDERRPIN 13
 #define BATTMONPIN 33
+#define INTERRUPTPINMASK 0xC00000000
 
 //==========================Definitions for VCNL=======================
 #define TCAADDR 0x70 //default 0X70

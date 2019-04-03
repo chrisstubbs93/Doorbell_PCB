@@ -16,6 +16,7 @@ void wifiTasks() {
 
 void ring(const int bus)
 {
+  lastPressed = millis(); //record the button was pressed for sleep mode
   if (lecturerStatus[bus] == "Available") {
     digitalWrite(LEDAVAILPIN, HIGH);
   } else {
@@ -57,9 +58,9 @@ void ring(const int bus)
           display.setFont(font);
           display.setCursor(0, 16 * 4);
           if (lecturerStatus[bus] == "Available") {
-            display.print(lecturerNames[bus]); display.println(" has been notified.");
+            display.println(wordWrap(lecturerNames[bus] + " has been notified."));
           } else {
-            display.print(lecturerNames[bus]); display.println(" has been notified, but may be busy.");
+            display.println(wordWrap(lecturerNames[bus] + " has been notified, but may be busy."));
           }
           display.update();
         }
@@ -117,7 +118,7 @@ boolean connectWiFi() {
       WiFi.begin(ssid.c_str(), rot(wifipsk).c_str()); //connect to AP
     }
     Serial.print("[INFO] Connecting to " + ssid + ". Attempt " + connAttempts);
-    addToLog("Conn to. " + ssid);
+    addToLog(ssid + " connecting");
     if (checkConnection()) {
       return true; //Connected OK.
     } else {
@@ -127,9 +128,9 @@ boolean connectWiFi() {
         errorMsg("WiFi connection timed out.\nThis is attempt " + (String)connAttempts + "/3.\nAborting connection.\nEntering setup mode.");
       } else {
         //Display retry error
-        errorMsg("WiFi connection timed out.\nThis is attempt " + (String)connAttempts + "/3.\nTrying again in 30s.\nPress [A] to retry now.\nPress [B] to run setup.");
+        errorMsg("WiFi connection timed out.\nThis is attempt " + (String)connAttempts + "/3.\nTrying again in 10s.\nPress [A] to retry now.\nPress [B] to run setup.");
         unsigned long tmr = millis();
-        while ((millis() - tmr < 30000)) {
+        while ((millis() - tmr < 10000)) {
           if (digitalRead(BTNAPIN)) {
             //User requested retry
             if (connAttempts == 3) connAttempts = 2; //Manually allow one more try if on last try.
@@ -294,6 +295,8 @@ Sensor threshold: <input name='threshold' type='text' value='" + (String)thres +
 <br /><br />\
 Notify lecturer on ring even if they are busy?: <input name='busyNotif' type='checkbox'" + ((busyNotif) ? (" checked") : ("")) + ">\
 <br /><br />\
+Enable power saving sleep mode after <input name='sleepDelay' type='text' value='" + sleepDelay + "'> mins?: <input name='powerSave' type='checkbox'" + ((powerSave) ? (" checked") : ("")) + ">\
+<br /><br />\
 Room name: <input name='room' type='text' value='" + room + "'>\
 <br /><br />\
 Admin password: <input name='adminpw' type='text' value='" + www_password + "'>\
@@ -375,7 +378,9 @@ void saveSettings() {
   else {
     room = webServer.arg("room");
     busyNotif = (webServer.arg("busyNotif") == "on"); //true if checked
+    powerSave = (webServer.arg("powerSave") == "on"); //true if checked
     thres = webServer.arg("threshold").toFloat();
+    sleepDelay = webServer.arg("sleepDelay").toInt();
     www_password = webServer.arg("adminpw");
     lecturerNames[0] = webServer.arg("l1name");
     lecturerNames[1] = webServer.arg("l2name");

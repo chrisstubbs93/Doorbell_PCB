@@ -48,6 +48,9 @@ bool loadConfig() {
   room = (const char*)json["room"];
   thres = json["thres"];
   busyNotif = json["busyNotif"];
+  powerSave = json["powerSave"];
+  sleepDelay = json["sleepDelay"];
+  if (sleepDelay < 1) sleepDelay = 1; //coerce to greater than zero
 
   //Restore lecturer details
   for (int i = 0; i < 5; i++) {
@@ -56,9 +59,9 @@ bool loadConfig() {
     lecturerStatus[i] = (const char*)json["lecturerStatus"][(String)i];
   }
 
-  Serial.print("[INFO] Parameters loaded:");
-  json.printTo(Serial);
-  Serial.println();
+  //Serial.print("[INFO] Parameters loaded:");
+  //json.printTo(Serial);
+  //Serial.println();
   return true;
 }
 bool saveConfig() {
@@ -74,6 +77,8 @@ bool saveConfig() {
   json["room"] = room;
   json["thres"] = thres;
   json["busyNotif"] = busyNotif;
+  json["powerSave"] = powerSave;
+  json["sleepDelay"] = sleepDelay;
 
   //Store lecturer details
   JsonObject& jsonLecNames = jsonBuffer.createObject();
@@ -88,9 +93,9 @@ bool saveConfig() {
   json["lecturerIFTTkeys"] = jsonLecKeys;
   json["lecturerStatus"] = jsonLecStatus;
 
-  Serial.print("[INFO] Parameters stored:");
-  json.printTo(Serial);
-  Serial.println();
+  //Serial.print("[INFO] Parameters stored:");
+  //json.printTo(Serial);
+  //Serial.println();
 
   File configFile = SPIFFS.open("/config.json", "w");
   if (!configFile) {

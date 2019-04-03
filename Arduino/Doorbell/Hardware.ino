@@ -2,14 +2,15 @@
 // Handles I2C multiplexer, connection to VCNL IR proximity sensors, proximity sensor related functions, initialisation of GPIO, scanning of buttons.
 //=====================================================================
 
-
-
 //======================Variables for VCNL==============================
 long average[] =   {0, 0, 0, 0, 0, 0, 0, 0};
 long threshold[] = {0, 0, 0, 0, 0, 0, 0, 0};
 long reading[] =   {0, 0, 0, 0, 0, 0, 0, 0};
 
 Adafruit_VCNL4010 vcnl;
+
+//======================Variables for sleep==============================
+unsigned long lastPressed = 0;
 
 void initGPIO() {
   //Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused.
@@ -58,7 +59,7 @@ int tcaget() { //returns the current bus of the mux 0...7
 
 void detectVCNLs() {
   Serial.println("[INFO] Autodetecting sensors....");
-  addToLog("Autodetecting sensors....");
+  //addToLog("Autodetecting sensors....");
   for (int bus = 0; bus <= 7; bus++) {
     tcaselect(bus);
     int trynum = 1;
@@ -79,7 +80,7 @@ void detectVCNLs() {
     }
   }
   Serial.println("[INFO] Number of doorbells found: " + (String)doorbells);
-  addToLog((String)doorbells + " sensors found.");
+  //addToLog((String)doorbells + " sensors found.");
   if (doorbells == 0) {
     errorMsg("Hardware error.\nNo VCNL sesnors found.\nContact support.");
   }
@@ -106,13 +107,61 @@ void calibrateVCNLs() {
 
 void checkButtons() {
   if (digitalRead(BTNAPIN)) {
+    lastPressed = millis(); //record the button was pressed for sleep mode
     Serial.println("[INFO] Button A Pressed");
     showInfo();
     while (digitalRead(BTNAPIN)) {}
   }
   if (digitalRead(BTNBPIN)) {
+    lastPressed = millis(); //record the button was pressed for sleep mode
     Serial.println("[INFO] Button B Pressed");
     while (digitalRead(BTNBPIN)) {}
+  }
+}
+
+void manageSleep() {
+  if (powerSave) {
+    if (millis() - lastPressed > sleepDelay * 60000) {
+      //go to sleep if no activity for x mins
+      setupVCNLinterrupt(); //set up the VCNLs for interrupt
+      sleeping = true; //set the sleeping flag
+      writeNames(); //show the sleeping flag on screen
+      entersleep(); //go to sleep
+    }
+  }
+}
+
+void entersleep() {
+  Serial.println("[INFO] Entering sleep mode");
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_32, 0); //interrupt on VCNL sum
+  esp_sleep_enable_ext1_wakeup(INTERRUPTPINMASK, ESP_EXT1_WAKEUP_ANY_HIGH); //interrupt on A/B buttons
+  esp_sleep_enable_timer_wakeup(1800 * 1000000); //interrupt every hour to update battery etc
+  //future wakeup on button press (A/B) or low battery to send notification (or periodic update?)
+  delay(500);
+  esp_deep_sleep_start();
+}
+
+void wakeup_reason() {
+  esp_sleep_wakeup_cause_t wakeup_reason;
+  wakeup_reason = esp_sleep_get_wakeup_cause();
+  switch (wakeup_reason)
+  {
+    case 1  : Serial.println("[INFO] Wakeup caused by external signal using RTC_IO"); break; //EXT0 - VCNL
+    case 2  : Serial.println("[INFO] Wakeup caused by external signal using RTC_CNTL"); break; //EXT1 - A/B
+    case 3  : Serial.println("[INFO] Wakeup caused by timer"); break;
+    case 4  : Serial.println("[INFO] Wakeup caused by touchpad"); break;
+    case 5  : Serial.println("[INFO] Wakeup caused by ULP program"); break;
+    default : Serial.println("[INFO] Wakeup was not caused by deep sleep"); break;
+  }
+}
+
+int bootmode() {
+  esp_sleep_wakeup_cause_t wakeup_reason;
+  wakeup_reason = esp_sleep_get_wakeup_cause();
+  if (wakeup_reason > 5 or wakeup_reason < 1){
+    return 6;
+  } else {
+    return wakeup_reason;
   }
 }
 
@@ -149,4 +198,44 @@ void scanVCNLs() {
       Serial.print(buf);
     }
   }
+}
+
+void setupVCNLinterrupt() {
+  //once the interrupt is set up, the proximity must only be read using background measurement
+  for (int bus = 0; bus < doorbells; bus++) {
+    tcaselect(bus);
+    Serial.println("[INFO] Setting interrupt on bus " + (String)bus + " ");
+    vcnl.setLEDcurrent(LEDCURR); //Set IR LED on to take measurement
+    delay(10); //small delay to allow IR LED to stabilise
+    vcnl.write8(0x89, 0x02); //set up interrupt type
+    //set low thres to 0
+    vcnl.write8(0x8A, 0x00);
+    vcnl.write8(0x8B, 0x00);
+    //set high thres to value from array
+    vcnl.write8(0x8C, highByte(threshold[bus]));
+    vcnl.write8(0x8D, lowByte(threshold[bus]));
+    //run continuous measurements
+    vcnl.write8(0x80, 0x03);
+  }
+}
+
+uint16_t getBackgroundProximity() {
+  vcnl.setLEDcurrent(LEDCURR); //Set IR LED on to take measurement
+  delay(10); //small delay to allow IR LED to stabilise
+  vcnl.write8(0x80, 0x03); //run continuous measurements
+  uint16_t p = vcnl.read8(0x87);
+  p = p << 8;
+  p = p + vcnl.read8(0x88);
+  return p;
+}
+
+int interruptSource() {
+  for (int bus = 0; bus < doorbells; bus++) {
+    tcaselect(bus);
+    //Serial.print((String)"Device " + bus + " has an interrupt register with contents "); Serial.println(vcnl.read8(0x8E),HEX);
+    if (vcnl.read8(0x8E) & 0x01) { //check interrupt register on VCNL
+      return bus;
+    }
+  }
+  return 0;
 }

@@ -2,13 +2,12 @@
 // Main file for the Lecturer Availability Door Announcer final year BEng project by Chris Stubbs.
 //=====================================================================
 
-#define VERSION "0.6"//update when comitted to github
+#define VERSION "1.0"//update when comitted to github
 
 #include <WiFi.h>
 #include <DNSServer.h>
 #include <WiFiClient.h>
 #include <WebServer.h>
-#include <ESPmDNS.h> //needed?
 #include "esp_wpa2.h"
 #include <ArduinoJson.h>
 #include "Settings.h" //Initial settings
@@ -30,18 +29,26 @@ DNSServer dnsServer;
 WebServer webServer(80);
 boolean settingMode;
 int doorbells = 0;
+bool sleeping = false;
 
 void setup() {
   Wire.begin();
   Serial.begin(115200);
   Serial.println((String)"[INFO] Lecturer availability door announcer version " + (String)VERSION);
+  wakeup_reason();
   display.init();
   initGPIO();
-  displayVersion();
+  if (bootmode() == 6) displayVersion();
   initFS();
-  if (loadConfig()) {
+  bool configstatus = loadConfig();
+  if (bootmode() == 3) { //wakeup cause by timer. Update battery % on screen and go back to sleep.
+    sleeping = true; //set the sleeping flag
+    writeNames(); //show the sleeping flag on screen
+    entersleep(); //go to sleep
+  }
+  if (configstatus) {
     //Config loaded OK. Try to connect to WiFi.
-    if (connectWiFi()){
+    if (connectWiFi()) {
       //WiFi connected OK. Start config web server and continue boot.
       startWebServer();
     } else {
@@ -55,13 +62,20 @@ void setup() {
     return; //abort boot to carry out initial setup wizard
   }
   detectVCNLs();
+  if (bootmode() == 1) {
+    int source = interruptSource();
+    Serial.println((String)"[INFO] Interrupt triggered by sensor " + interruptSource());
+    ring(source);
+  }
   calibrateVCNLs();
   writeNames();
 }
+
 
 void loop() {
   wifiTasks();
   scanVCNLs();
   checkButtons();
+  manageSleep();
   delay(SCAN_INTERVAL);
 }
