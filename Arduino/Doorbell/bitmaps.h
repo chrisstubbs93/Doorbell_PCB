@@ -1,6 +1,7 @@
-//================================bitmaps.h============================
-// Stores bitmap images for display in program memory
-//=====================================================================
+/**
+    \file bitmaps.h
+    Stores bitmap images for display in program memory
+*/
 
 #if defined(ESP8266) || defined(ESP32)
 #include <pgmspace.h>
@@ -8,11 +9,11 @@
 #include <avr/pgmspace.h>
 #endif
 
-//Generated from http://javl.github.io/image2cpp/
-//Invert colours
-
+/*! The LSBU logo stored as an array. */
+/*! Generated from http://javl.github.io/image2cpp/ */
+/*! Invert colours. */
 const unsigned char BmpLSBU [] PROGMEM = {
-  // 'LSBU Crest_simple white text_Horizon_BlackOutline, 296x128px
+  // LSBU Crest_simple white text_Horizon_BlackOutline, 296x128px
   0x00, 0x00, 0x00, 0x00, 0x60, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x48, 0x00, 0x00, 0x00, 0x24, 0x30, 0x00, 

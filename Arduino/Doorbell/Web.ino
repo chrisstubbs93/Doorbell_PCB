@@ -1,12 +1,14 @@
-//================================Web.h===============================
-// Handles WiFi access point, WiFi client, DNS server, webservers for initial setup wizard and configuration, IFTTT integration.
-// Also contains all HTML for webservers
-//=====================================================================
+/**
+    \file Web.ino
+    Handles WiFi access point, WiFi client, DNS server, webservers for initial setup wizard and configuration, IFTTT integration.
+    Also contains all HTML for webservers
+*/
 
-const IPAddress apIP(192, 168, 1, 1);
-const char* apSSID = "_SETUP";
-String ssidList;
+const IPAddress apIP(192, 168, 1, 1); //!< Fixed IP address of device for setup wizard in AP mode.
+const char* apSSID = "_SETUP"; //!< Name of SSID for setup wizard access point.
+String ssidList; //!< List of all detected SSIDs from scan.
 
+/*! Run background WiFi DNS server and webserver tasks. */
 void wifiTasks() {
   if (settingMode) {
     dnsServer.processNextRequest();
@@ -14,6 +16,7 @@ void wifiTasks() {
   webServer.handleClient();
 }
 
+/*! Send a webhooks request to IFTTT with the room name and appropraite lecturers key. Display status on screen. Input = 0...7. */
 void ring(const int bus)
 {
   lastPressed = millis(); //record the button was pressed for sleep mode
@@ -96,6 +99,7 @@ void ring(const int bus)
   }
 }
 
+/*! Attempt to connect to specified WiFi SSID. After 3 failures, default to setup wizard. */
 boolean connectWiFi() {
   int connAttempts = 0;
   while (connAttempts < 3) {
@@ -150,6 +154,7 @@ boolean connectWiFi() {
   return false;
 }
 
+/*! Check WiFi is connected. */
 boolean checkConnection() {
   int count = 0;
   while ( count < 15 ) {
@@ -166,6 +171,7 @@ boolean checkConnection() {
   return false;
 }
 
+/*! Start the appropriate web server depending on if the mode is normal or setup mode. */
 void startWebServer() {
   if (settingMode) { //Set up webserver to serve captive portal for wifi setup wizard
     setupMsg(apSSID); //Display setup screen
@@ -186,6 +192,7 @@ void startWebServer() {
   webServer.begin();
 }
 
+/*! Prepare and start the setup wizard with list of scanned SSIDs. */
 void setupMode() {
   //Disconnect any connections and scan for AP's
   WiFi.mode(WIFI_STA);
@@ -216,6 +223,7 @@ void setupMode() {
   Serial.println((String)"[INFO] Starting Access Point at " + apSSID);
 }
 
+/*! Generate basic HTML tags around content. */
 String makePage(String title, String contents) {
   String s = "<!DOCTYPE html><html><head>";
   s += "<meta name=\"viewport\" content=\"width=device-width,user-scalable=0\">";
@@ -227,6 +235,7 @@ String makePage(String title, String contents) {
   return s;
 }
 
+/*! Replace URL encoded characters. */
 String urlDecode(String input) {
   String s = input;
   s.replace("%20", " ");
@@ -262,6 +271,7 @@ String urlDecode(String input) {
   return s;
 }
 
+/*! Handle requests to the main page of the config interface. Check authentication and serve page with current variables. */
 void handleRoot() {
   if (!webServer.authenticate(&www_username[0u], &www_password[0u])) {
     return webServer.requestAuthentication();
@@ -345,6 +355,7 @@ Admin password: <input name='adminpw' type='text' value='" + www_password + "'>\
   }
 }
 
+/*! Generate HTML for dropdown with status options. */
 String generateStatusDropdown(uint8_t n) {
   //Generates the HTML string for a status dropdown of the given lecturer number (n).
   int num = n + 1;
@@ -370,6 +381,7 @@ String generateStatusDropdown(uint8_t n) {
   return tmphtml;
 }
 
+/*! Save settings recieved from the web config interface to SPIFFS and load them into current memory. */
 void saveSettings() {
   if (!webServer.authenticate(&www_username[0u], &www_password[0u])) {
     return webServer.requestAuthentication();
@@ -406,6 +418,7 @@ void saveSettings() {
   }
 }
 
+/*! Serve error page if request is unhandled. */
 void handleNotFound() {
   String message = "File Not Found\n\n";
   message += "URI: ";
@@ -422,6 +435,7 @@ void handleNotFound() {
   webServer.send(404, "text/plain", message);
 }
 
+/*! Handle user request to reset settings and reboot device. */
 void handleReset() {
   if (!webServer.authenticate(&www_username[0u], &www_password[0u])) {
     return webServer.requestAuthentication();
@@ -438,6 +452,7 @@ void handleReset() {
   }
 }
 
+/*! Serve main menu of setup wizard (WPA2-PSK / WPA2-ENTERPRISE). */
 void handleSetupRoot() {
   String s = "<h1>Lecturer availability door announcer</h1>";
   s += "<p>Final year BEng project by Chris Stubbs (2019)</p>";
@@ -445,6 +460,8 @@ void handleSetupRoot() {
   s += "<p><a href=\"/eduroam\">Setup wizard for eduroam (WPA2-Enterprise)</a></p>";
   webServer.send(200, "text/html", makePage("Setup Wizard", s));
 }
+
+/*! Serve menu for WPA2-PSK setup. */
 void handleSettings() {
   String s = "<h1>Wi-Fi Settings</h1><p><a href=\"/\">Go back</a></p><p>Please enter settings for standard WiFi (WPA2).</p>";
   s += "<form method=\"get\" action=\"setap\">";
@@ -455,6 +472,8 @@ void handleSettings() {
   s += "<tr><td><input type=\"submit\"></td></tr></table></form>";
   webServer.send(200, "text/html", makePage("Wi-Fi Settings", s));
 }
+
+/*! Serve menu for WPA2-ENTERPRISE setup. */
 void handleEduroam() {
   String s = "<h1>Wi-Fi Settings</h1><p><a href=\"/\">Go back</a></p><p>Please enter settings for eduroam (WPA2-Enterprise).</p><p>Password is typically left blank.</p><p>EAP Identity is typically your university email address.</p><p>EAP Password is typically your university password.</p>";
   s += "<form method=\"get\" action=\"setap\">";
@@ -467,6 +486,8 @@ void handleEduroam() {
   s += "<tr><td><input type=\"submit\"></td></tr></table></form>";
   webServer.send(200, "text/html", makePage("Wi-Fi Settings", s));
 }
+
+/*! Save settings from setup wizard and restart to use them. */
 void handleSetAP() {
   ssid = urlDecode(webServer.arg("ssid"));
   wifipsk = rot(urlDecode(webServer.arg("pass")));

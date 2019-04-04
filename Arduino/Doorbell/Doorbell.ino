@@ -1,8 +1,9 @@
-//================================Doorbell.h=============================
-// Main file for the Lecturer Availability Door Announcer final year BEng project by Chris Stubbs.
-//=====================================================================
+/**
+    \file Doorbell.ino
+    Main file for the Lecturer Availability Door Announcer final year BEng project by Chris Stubbs.
+*/
 
-#define VERSION "1.0"//update when comitted to github
+#define VERSION "1.1"//update when comitted to github
 
 #include <WiFi.h>
 #include <DNSServer.h>
@@ -23,14 +24,15 @@
 #include <Fonts/FreeMonoBold9pt7b.h>
 #include <Fonts/FreeMonoBold12pt7b.h>
 
-GxIO_Class io(SPI, /*CS*/ 15, /*DC*/ 4, /*RST*/ 5);
-GxEPD_Class display(io, /*RST*/ 5, /*BUSY*/ 16);
-DNSServer dnsServer;
-WebServer webServer(80);
-boolean settingMode;
-int doorbells = 0;
-bool sleeping = false;
+GxIO_Class io(SPI, /*! CS */ 15, /*! DC */ 4, /*! RST */ 5); //!< Define the hardware pins used by the ePaper display for SPI. 15=CS, 4=DC, 5=RST.
+GxEPD_Class display(io, /*!RST*/ 5, /*!BUSY*/ 16); //!< Define the hardware pins used by the ePaper display for control. 5=RST, 16=BUSY..
+DNSServer dnsServer; //!< DNS server used for captive portal in setup mode.
+WebServer webServer(80); //!< Web server used for setup wizard and config interface.
+boolean settingMode; //!< Is the device in setup wizard mode (true) or normal mode (false)?
+int doorbells = 0;  //!< Number of VCNL4020 sensors detected.
+bool sleeping = false; //!< Is the device in or about to enter deep sleep mode for power saving?
 
+/*! Setup function runs once on startup. Detect boot mode (normal or waking up from deep sleep). Perform setup. */
 void setup() {
   Wire.begin();
   Serial.begin(115200);
@@ -71,7 +73,7 @@ void setup() {
   writeNames();
 }
 
-
+/*! Loop function runs continuously. Poll devices and run background tasks. */
 void loop() {
   wifiTasks();
   scanVCNLs();

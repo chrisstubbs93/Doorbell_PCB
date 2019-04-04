@@ -1,0 +1,817 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_web_8ino" kind="file" language="C++">
+    <compoundname>Web.ino</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* apSSID</definition>
+        <argsstring></argsstring>
+        <name>apSSID</name>
+        <initializer>= &quot;_SETUP&quot;</initializer>
+        <briefdescription>
+<para>Name of SSID for setup wizard access point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="8" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_web_8ino_1ae5d189232399d7728ea364065b9727c4" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ssidList</definition>
+        <argsstring></argsstring>
+        <name>ssidList</name>
+        <briefdescription>
+<para>List of all detected SSIDs from scan. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="9" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_web_8ino_1a5090b163ff08822a787a45da8b7ed87a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPAddress</type>
+        <definition>const IPAddress apIP</definition>
+        <argsstring>(192, 168, 1, 1)</argsstring>
+        <name>apIP</name>
+        <param>
+          <type>192</type>
+        </param>
+        <param>
+          <type>168</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <briefdescription>
+<para>Fixed IP address of device for setup wizard in AP mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="7" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a6f6f044bce35a405bc05f223e20f8cf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void wifiTasks</definition>
+        <argsstring>()</argsstring>
+        <name>wifiTasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run background WiFi DNS server and webserver tasks. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="12" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="12" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a4b775e1d95473a982717aaa2da30e4f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ring</definition>
+        <argsstring>(const int bus)</argsstring>
+        <name>ring</name>
+        <param>
+          <type>const int</type>
+          <declname>bus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a webhooks request to IFTTT with the room name and appropraite lecturers key. Display status on screen. Input = 0...7. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="20" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="20" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a144025702d7aa7708d704324ecb09eff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean connectWiFi</definition>
+        <argsstring>()</argsstring>
+        <name>connectWiFi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attempt to connect to specified WiFi SSID. After 3 failures, default to setup wizard. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="103" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="103" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1acec1ba9681e6777d66ed640286d203c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean checkConnection</definition>
+        <argsstring>()</argsstring>
+        <name>checkConnection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check WiFi is connected. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="158" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="158" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a0d04c1af31c2cdcf510d08e8a6643fa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void startWebServer</definition>
+        <argsstring>()</argsstring>
+        <name>startWebServer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start the appropriate web server depending on if the mode is normal or setup mode. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="175" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="175" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a292bc11fc3dcd09074ef62051f881173" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupMode</definition>
+        <argsstring>()</argsstring>
+        <name>setupMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prepare and start the setup wizard with list of scanned SSIDs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="196" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="196" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String makePage</definition>
+        <argsstring>(String title, String contents)</argsstring>
+        <name>makePage</name>
+        <param>
+          <type>String</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>contents</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generate basic HTML tags around content. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="227" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="227" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a229909254c88e9d103199da59b22bdd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String urlDecode</definition>
+        <argsstring>(String input)</argsstring>
+        <name>urlDecode</name>
+        <param>
+          <type>String</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Replace URL encoded characters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="239" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="239" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a8427468f39342a1990703e9f5ce7fd29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handleRoot</definition>
+        <argsstring>()</argsstring>
+        <name>handleRoot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle requests to the main page of the config interface. Check authentication and serve page with current variables. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="275" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="275" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String generateStatusDropdown</definition>
+        <argsstring>(uint8_t n)</argsstring>
+        <name>generateStatusDropdown</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generate HTML for dropdown with status options. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="359" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="359" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1ac7142ee2baa705d2dd402769467d5a4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void saveSettings</definition>
+        <argsstring>()</argsstring>
+        <name>saveSettings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Save settings recieved from the web config interface to SPIFFS and load them into current memory. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="385" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="385" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a54f2b176a577c7a89bb94da4f12cd06b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handleNotFound</definition>
+        <argsstring>()</argsstring>
+        <name>handleNotFound</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serve error page if request is unhandled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="422" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="422" bodyend="436"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a28576d900afa7ce8f3f4177cb38f61b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handleReset</definition>
+        <argsstring>()</argsstring>
+        <name>handleReset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle user request to reset settings and reboot device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="439" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="439" bodyend="453"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1a211179d239a3a6fdc1ba1b6d7df252ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handleSetupRoot</definition>
+        <argsstring>()</argsstring>
+        <name>handleSetupRoot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serve main menu of setup wizard (WPA2-PSK / WPA2-ENTERPRISE). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="456" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="456" bodyend="462"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1af87f54300d1d09b658c30cff92a27f5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handleSettings</definition>
+        <argsstring>()</argsstring>
+        <name>handleSettings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serve menu for WPA2-PSK setup. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="465" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="465" bodyend="474"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1ac6b09eb8896b2e7975b32c3b4c82387b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handleEduroam</definition>
+        <argsstring>()</argsstring>
+        <name>handleEduroam</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serve menu for WPA2-ENTERPRISE setup. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="477" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="477" bodyend="488"/>
+      </memberdef>
+      <memberdef kind="function" id="_web_8ino_1abc559dd4a64f6e15aff6bb8377de1e5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void handleSetAP</definition>
+        <argsstring>()</argsstring>
+        <name>handleSetAP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Save settings from setup wizard and restart to use them. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" line="491" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino" bodystart="491" bodyend="508"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles WiFi access point, WiFi client, DNS server, webservers for initial setup wizard and configuration, IFTTT integration. Also contains all HTML for webservers </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="7"><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IPAddress<sp/><ref refid="_web_8ino_1a5090b163ff08822a787a45da8b7ed87a" kindref="member">apIP</ref>(192,<sp/>168,<sp/>1,<sp/>1);<sp/></highlight></codeline>
+<codeline lineno="8" refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" kindref="member">apSSID</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;_SETUP&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="9" refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" refkind="member"><highlight class="normal">String<sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref>;<sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="_web_8ino_1a6f6f044bce35a405bc05f223e20f8cf7" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a6f6f044bce35a405bc05f223e20f8cf7" kindref="member">wifiTasks</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_doorbell_8ino_1a5c64e18eb1e6df97544212e53facd531" kindref="member">settingMode</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a52c5394c861b62875409604eedc0fcd7" kindref="member">dnsServer</ref>.processNextRequest();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.handleClient();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="_web_8ino_1a4b775e1d95473a982717aaa2da30e4f5" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a4b775e1d95473a982717aaa2da30e4f5" kindref="member">ring</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bus)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1" kindref="member">lastPressed</ref><sp/>=<sp/>millis();<sp/></highlight><highlight class="comment">//record<sp/>the<sp/>button<sp/>was<sp/>pressed<sp/>for<sp/>sleep<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[bus]<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Available&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDAVAILPIN,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDBUSYPIN,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[bus]<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Available&quot;</highlight><highlight class="normal"><sp/>or<sp/><ref refid="_settings__template_8h_1abc11962b1ccc3df5f1ce8ad620c977d4" kindref="member">busyNotif</ref>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>16<sp/>*<sp/>4);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.print(</highlight><highlight class="stringliteral">&quot;Contacting<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.print(<ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[bus]);<sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((WiFi.status()<sp/>==<sp/>WL_CONNECTED))<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>HTTPClient<sp/>http;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>HTTP<sp/>Req:<sp/>https://maker.ifttt.com/trigger/&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a2e8bcac3a4bc71ac4c9b9b5334803a56" kindref="member">room</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/with/key/&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[bus]);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>http.begin((String)</highlight><highlight class="stringliteral">&quot;https://maker.ifttt.com/trigger/&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a2e8bcac3a4bc71ac4c9b9b5334803a56" kindref="member">room</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/with/key/&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[bus]);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>httpCode<sp/>=<sp/>http.GET();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(httpCode<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>String<sp/>payload<sp/>=<sp/>http.getString();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>httpCode:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>httpCode);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>payload:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>payload);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(httpCode<sp/>!=<sp/>200)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Error<sp/>communicating<sp/>with<sp/>IFTTT<sp/>service.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(httpCode<sp/>==<sp/>302)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//&quot;Temporarily<sp/>moved&quot;<sp/>(common<sp/>error<sp/>for<sp/>no<sp/>key)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>communicating<sp/>with<sp/>\nIFTTT.\n\nDid<sp/>you<sp/>set<sp/>the<sp/>room<sp/>and\nlecturer<sp/>key?&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>communicating<sp/>with<sp/>IFTTT<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)httpCode<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>payload);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;Req:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)</highlight><highlight class="stringliteral">&quot;https://maker.ifttt.com/trigger/&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a2e8bcac3a4bc71ac4c9b9b5334803a56" kindref="member">room</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/with/key/&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[bus]);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(httpCode<sp/>==<sp/>200)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//success</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(LEDOKPIN,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>16<sp/>*<sp/>4);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[bus]<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Available&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(<ref refid="_g_u_i_8ino_1ab945e0c8dbab7335f8dab9a01363277e" kindref="member">wordWrap</ref>(<ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[bus]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>has<sp/>been<sp/>notified.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(<ref refid="_g_u_i_8ino_1ab945e0c8dbab7335f8dab9a01363277e" kindref="member">wordWrap</ref>(<ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[bus]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>has<sp/>been<sp/>notified,<sp/>but<sp/>may<sp/>be<sp/>busy.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;Unknown<sp/>error<sp/>in<sp/>HTTP<sp/>request.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>http.end();<sp/></highlight><highlight class="comment">//Free<sp/>the<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;Wifi<sp/>not<sp/>connected.<sp/>Restarting<sp/>in<sp/>30<sp/>seconds.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(30000);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP.restart();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5000);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDOKPIN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDAVAILPIN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDBUSYPIN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" kindref="member">writeNames</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>16<sp/>*<sp/>4);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(<ref refid="_g_u_i_8ino_1ab945e0c8dbab7335f8dab9a01363277e" kindref="member">wordWrap</ref>((String)<ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[bus]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>is<sp/>busy/away.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Please<sp/>try<sp/>again<sp/>later.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(3000);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDOKPIN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDAVAILPIN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(LEDBUSYPIN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" kindref="member">writeNames</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="_web_8ino_1a144025702d7aa7708d704324ecb09eff" refkind="member"><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a144025702d7aa7708d704324ecb09eff" kindref="member">connectWiFi</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>connAttempts<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(connAttempts<sp/>&lt;<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>connAttempts++;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a385e90665734c058bd1dcdf5ee1f64f3" kindref="member">EAP_IDENTITY</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>wpa2-psk<sp/>is<sp/>configured</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>WPA2-PSK<sp/>mode.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>WiFi.begin(<ref refid="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3" kindref="member">ssid</ref>.c_str(),<sp/><ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_settings__template_8h_1ac3c66d10da8649c07319cc2813bd5e5a" kindref="member">wifipsk</ref>).c_str());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>eduroam<sp/><sp/>is<sp/>configured</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>WPA2-Enterprise<sp/>mode.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>WiFi.disconnect(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>WiFi.mode(WIFI_STA);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>EAP_IDENTITY_A<sp/>=<sp/>reinterpret_cast&lt;const<sp/>unsigned<sp/>char<sp/>*&gt;(<sp/><ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_settings__template_8h_1a385e90665734c058bd1dcdf5ee1f64f3" kindref="member">EAP_IDENTITY</ref>).c_str()<sp/>);<sp/></highlight><highlight class="comment">//convert<sp/>strings<sp/>to<sp/>unsigned<sp/>char<sp/>for<sp/>enterprise<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>EAP_PASSWORD_A<sp/>=<sp/>reinterpret_cast&lt;const<sp/>unsigned<sp/>char<sp/>*&gt;(<sp/><ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_settings__template_8h_1af5df74874c991138efe45150fab7aa13" kindref="member">EAP_PASSWORD</ref>).c_str()<sp/>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>esp_wifi_sta_wpa2_ent_set_username(EAP_IDENTITY_A,<sp/>strlen(<ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_settings__template_8h_1a385e90665734c058bd1dcdf5ee1f64f3" kindref="member">EAP_IDENTITY</ref>).c_str()));<sp/></highlight><highlight class="comment">//set<sp/>enterprise<sp/>wifi<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>esp_wifi_sta_wpa2_ent_set_password(EAP_PASSWORD_A,<sp/>strlen(<ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_settings__template_8h_1af5df74874c991138efe45150fab7aa13" kindref="member">EAP_PASSWORD</ref>).c_str()));</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>esp_wpa2_config_t<sp/>config<sp/>=<sp/>WPA2_CONFIG_INIT_DEFAULT();<sp/></highlight><highlight class="comment">//set<sp/>config<sp/>settings<sp/>to<sp/>default</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>esp_wifi_sta_wpa2_ent_enable(&amp;config);<sp/></highlight><highlight class="comment">//enable<sp/>enterprise<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>WiFi.begin(<ref refid="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3" kindref="member">ssid</ref>.c_str(),<sp/><ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_settings__template_8h_1ac3c66d10da8649c07319cc2813bd5e5a" kindref="member">wifipsk</ref>).c_str());<sp/></highlight><highlight class="comment">//connect<sp/>to<sp/>AP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Connecting<sp/>to<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3" kindref="member">ssid</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>Attempt<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>connAttempts);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a138c0032519f7273647d99d811789e9d" kindref="member">addToLog</ref>(<ref refid="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3" kindref="member">ssid</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>connecting&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_web_8ino_1acec1ba9681e6777d66ed640286d203c7" kindref="member">checkConnection</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//Connected<sp/>OK.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Connection<sp/>failed.<sp/>Try<sp/>again.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(connAttempts<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Display<sp/>last<sp/>attempt<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;WiFi<sp/>connection<sp/>timed<sp/>out.\nThis<sp/>is<sp/>attempt<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)connAttempts<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/3.\nAborting<sp/>connection.\nEntering<sp/>setup<sp/>mode.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Display<sp/>retry<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;WiFi<sp/>connection<sp/>timed<sp/>out.\nThis<sp/>is<sp/>attempt<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)connAttempts<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/3.\nTrying<sp/>again<sp/>in<sp/>10s.\nPress<sp/>[A]<sp/>to<sp/>retry<sp/>now.\nPress<sp/>[B]<sp/>to<sp/>run<sp/>setup.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>tmr<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((millis()<sp/>-<sp/>tmr<sp/>&lt;<sp/>10000))<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//User<sp/>requested<sp/>retry</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(connAttempts<sp/>==<sp/>3)<sp/>connAttempts<sp/>=<sp/>2;<sp/></highlight><highlight class="comment">//Manually<sp/>allow<sp/>one<sp/>more<sp/>try<sp/>if<sp/>on<sp/>last<sp/>try.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//User<sp/>requested<sp/>setup<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a5c64e18eb1e6df97544212e53facd531" kindref="member">settingMode</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a5c64e18eb1e6df97544212e53facd531" kindref="member">settingMode</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Failed<sp/>to<sp/>connect<sp/>after<sp/>3<sp/>attempts.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="_web_8ino_1acec1ba9681e6777d66ed640286d203c7" refkind="member"><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1acec1ba9681e6777d66ed640286d203c7" kindref="member">checkConnection</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>count<sp/>&lt;<sp/>15<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(WiFi.status()<sp/>==<sp/>WL_CONNECTED)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;\n[INFO]<sp/>Connected!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a5c64e18eb1e6df97544212e53facd531" kindref="member">settingMode</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>Serial.println();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="_web_8ino_1a0d04c1af31c2cdcf510d08e8a6643fa9" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a0d04c1af31c2cdcf510d08e8a6643fa9" kindref="member">startWebServer</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_doorbell_8ino_1a5c64e18eb1e6df97544212e53facd531" kindref="member">settingMode</ref>)<sp/>{<sp/></highlight><highlight class="comment">//Set<sp/>up<sp/>webserver<sp/>to<sp/>serve<sp/>captive<sp/>portal<sp/>for<sp/>wifi<sp/>setup<sp/>wizard</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1ae2698a607f6e5be64f909e7ef2b9a579" kindref="member">setupMsg</ref>(<ref refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" kindref="member">apSSID</ref>);<sp/></highlight><highlight class="comment">//Display<sp/>setup<sp/>screen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.on(</highlight><highlight class="stringliteral">&quot;/settings&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1af87f54300d1d09b658c30cff92a27f5b" kindref="member">handleSettings</ref>);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.on(</highlight><highlight class="stringliteral">&quot;/eduroam&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1ac6b09eb8896b2e7975b32c3b4c82387b" kindref="member">handleEduroam</ref>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.on(</highlight><highlight class="stringliteral">&quot;/setap&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1abc559dd4a64f6e15aff6bb8377de1e5c" kindref="member">handleSetAP</ref>);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.onNotFound(<ref refid="_web_8ino_1a211179d239a3a6fdc1ba1b6d7df252ae" kindref="member">handleSetupRoot</ref>);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="comment">//Set<sp/>up<sp/>webserver<sp/>to<sp/>serve<sp/>normal<sp/>setup<sp/>page</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Starting<sp/>Web<sp/>Server<sp/>at<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(WiFi.localIP().toString());</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a138c0032519f7273647d99d811789e9d" kindref="member">addToLog</ref>((String)</highlight><highlight class="stringliteral">&quot;IP<sp/>addr:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>WiFi.localIP().toString());</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.on(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a8427468f39342a1990703e9f5ce7fd29" kindref="member">handleRoot</ref>);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.on(</highlight><highlight class="stringliteral">&quot;/reset&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a28576d900afa7ce8f3f4177cb38f61b9" kindref="member">handleReset</ref>);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.on(</highlight><highlight class="stringliteral">&quot;/savesettings.do&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1ac7142ee2baa705d2dd402769467d5a4e" kindref="member">saveSettings</ref>);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.onNotFound(<ref refid="_web_8ino_1a54f2b176a577c7a89bb94da4f12cd06b" kindref="member">handleNotFound</ref>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.begin();</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="_web_8ino_1a292bc11fc3dcd09074ef62051f881173" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a292bc11fc3dcd09074ef62051f881173" kindref="member">setupMode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Disconnect<sp/>any<sp/>connections<sp/>and<sp/>scan<sp/>for<sp/>AP&apos;s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>WiFi.mode(WIFI_STA);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>WiFi.disconnect();</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>WiFi.scanNetworks();</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref><sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;option<sp/>value=\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref><sp/>+=<sp/>WiFi.SSID(i);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref><sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref><sp/>+=<sp/>WiFi.SSID(i);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref><sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;/option&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Create<sp/>config<sp/>AP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>WiFi.mode(WIFI_AP);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>delay(250);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>WiFi.softAPConfig(<ref refid="_web_8ino_1a5090b163ff08822a787a45da8b7ed87a" kindref="member">apIP</ref>,<sp/><ref refid="_web_8ino_1a5090b163ff08822a787a45da8b7ed87a" kindref="member">apIP</ref>,<sp/>IPAddress(255,<sp/>255,<sp/>255,<sp/>0));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>delay(250);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>WiFi.softAP(<ref refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" kindref="member">apSSID</ref>);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>delay(250);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a52c5394c861b62875409604eedc0fcd7" kindref="member">dnsServer</ref>.setErrorReplyCode(DNSReplyCode::NoError);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a52c5394c861b62875409604eedc0fcd7" kindref="member">dnsServer</ref>.start(53,<sp/></highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a5090b163ff08822a787a45da8b7ed87a" kindref="member">apIP</ref>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>DNS<sp/>server<sp/>started&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><ref refid="_web_8ino_1a0d04c1af31c2cdcf510d08e8a6643fa9" kindref="member">startWebServer</ref>();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Starting<sp/>Access<sp/>Point<sp/>at<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" kindref="member">apSSID</ref>);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" refkind="member"><highlight class="normal">String<sp/><ref refid="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" kindref="member">makePage</ref>(String<sp/>title,<sp/>String<sp/>contents)<sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>String<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;!DOCTYPE<sp/>html&gt;&lt;html&gt;&lt;head&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;meta<sp/>name=\&quot;viewport\&quot;<sp/>content=\&quot;width=device-width,user-scalable=0\&quot;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;title&gt;Lecturer<sp/>availability<sp/>door<sp/>announcer&lt;/title&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;style&gt;<sp/>body<sp/>{<sp/>background-color:<sp/>#cccccc;<sp/>font-family:<sp/>Arial,<sp/>Helvetica,<sp/>Sans-Serif;<sp/>Color:<sp/>#000088;<sp/>}<sp/>&lt;/style&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;/head&gt;&lt;body&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/>contents;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239" refid="_web_8ino_1a229909254c88e9d103199da59b22bdd0" refkind="member"><highlight class="normal">String<sp/><ref refid="_web_8ino_1a229909254c88e9d103199da59b22bdd0" kindref="member">urlDecode</ref>(String<sp/>input)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>String<sp/>s<sp/>=<sp/>input;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%20&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;+&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%21&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%22&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%23&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;#&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%24&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;$&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%25&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%26&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&amp;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%27&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;\&apos;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%28&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%29&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%30&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%31&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;+&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%2C&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%2E&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%2F&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%2C&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%3A&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%3A&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%3C&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&lt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%3D&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;=&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%3E&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%3F&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;?&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%40&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;@&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%5B&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;[&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%5C&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;\\&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%5D&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%5E&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;^&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%5F&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/>s.replace(</highlight><highlight class="stringliteral">&quot;%60&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;`&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>s;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275" refid="_web_8ino_1a8427468f39342a1990703e9f5ce7fd29" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a8427468f39342a1990703e9f5ce7fd29" kindref="member">handleRoot</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.authenticate(&amp;<ref refid="_settings__template_8h_1a340468ccda3167a9550ad102019a00bc" kindref="member">www_username</ref>[0u],<sp/>&amp;<ref refid="_settings__template_8h_1a05f3047c0f2b2de07e88277f0cc21e2d" kindref="member">www_password</ref>[0u]))<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.requestAuthentication();</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Login<sp/>OK&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sec<sp/>=<sp/>millis()<sp/>/<sp/>1000;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min<sp/>=<sp/>sec<sp/>/<sp/>60;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hr<sp/>=<sp/>min<sp/>/<sp/>60;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>timestamp<sp/>[100];</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>snprintf(timestamp,<sp/>100,<sp/></highlight><highlight class="stringliteral">&quot;%02d:%02d:%02d&quot;</highlight><highlight class="normal">,<sp/>hr,<sp/>min<sp/>%<sp/>60,<sp/>sec<sp/>%<sp/>60);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>VBAT<sp/>=<sp/>((200.0f<sp/>/<sp/>100.0f)<sp/>*<sp/>3.30f<sp/>*<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">(analogRead(BATTMONPIN))<sp/>/<sp/>4095.0f)<sp/>+<sp/>0.2f;<sp/></highlight><highlight class="comment">//<sp/>LiPo<sp/>battery</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vbatt<sp/>=<sp/>(float)((100.0f<sp/>/<sp/>4.2f)<sp/>*<sp/>VBAT);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/>temp<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;html&gt;\</highlight></codeline>
+<codeline lineno="289"><highlight class="stringliteral"><sp/><sp/>&lt;head&gt;\</highlight></codeline>
+<codeline lineno="290"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;title&gt;Lecturer<sp/>availability<sp/>door<sp/>announcer&lt;/title&gt;\</highlight></codeline>
+<codeline lineno="291"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;style&gt;\</highlight></codeline>
+<codeline lineno="292"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>body<sp/>{<sp/>background-color:<sp/>#cccccc;<sp/>font-family:<sp/>Arial,<sp/>Helvetica,<sp/>Sans-Serif;<sp/>Color:<sp/>#000088;<sp/>}\</highlight></codeline>
+<codeline lineno="293"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;/style&gt;\</highlight></codeline>
+<codeline lineno="294"><highlight class="stringliteral"><sp/><sp/>&lt;/head&gt;\</highlight></codeline>
+<codeline lineno="295"><highlight class="stringliteral"><sp/><sp/>&lt;body&gt;\</highlight></codeline>
+<codeline lineno="296"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;h1&gt;Lecturer<sp/>availability<sp/>door<sp/>announcer&lt;/h1&gt;\</highlight></codeline>
+<codeline lineno="297"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Final<sp/>year<sp/>BEng<sp/>project<sp/>by<sp/>Chris<sp/>Stubbs<sp/>(2019)\</highlight></codeline>
+<codeline lineno="298"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;h2&gt;Status&lt;/h2&gt;\</highlight></codeline>
+<codeline lineno="299"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;p&gt;Uptime:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)timestamp<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&lt;/p&gt;\</highlight></codeline>
+<codeline lineno="300"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;p&gt;Battery:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)vbatt<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;%,<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)VBAT<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;V&lt;/p&gt;\</highlight></codeline>
+<codeline lineno="301"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;p&gt;Free<sp/>heap<sp/>(RAM):<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>ESP.getFreeHeap()<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>bytes.&lt;/p&gt;\</highlight></codeline>
+<codeline lineno="302"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;h2&gt;Settings&lt;/h2&gt;\</highlight></codeline>
+<codeline lineno="303"><highlight class="stringliteral">&lt;form<sp/>action=&apos;/savesettings.do&apos;<sp/>method=&apos;post&apos;&gt;\</highlight></codeline>
+<codeline lineno="304"><highlight class="stringliteral">Sensor<sp/>threshold:<sp/>&lt;input<sp/>name=&apos;threshold&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)<ref refid="_settings__template_8h_1a344ac98449beac1cdf80f0732b70fd9f" kindref="member">thres</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;\</highlight></codeline>
+<codeline lineno="305"><highlight class="stringliteral">&lt;br<sp/>/&gt;&lt;br<sp/>/&gt;\</highlight></codeline>
+<codeline lineno="306"><highlight class="stringliteral">Notify<sp/>lecturer<sp/>on<sp/>ring<sp/>even<sp/>if<sp/>they<sp/>are<sp/>busy?:<sp/>&lt;input<sp/>name=&apos;busyNotif&apos;<sp/>type=&apos;checkbox&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/>((<ref refid="_settings__template_8h_1abc11962b1ccc3df5f1ce8ad620c977d4" kindref="member">busyNotif</ref>)<sp/>?<sp/>(</highlight><highlight class="stringliteral">&quot;<sp/>checked&quot;</highlight><highlight class="normal">)<sp/>:<sp/>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&gt;\</highlight></codeline>
+<codeline lineno="307"><highlight class="stringliteral">&lt;br<sp/>/&gt;&lt;br<sp/>/&gt;\</highlight></codeline>
+<codeline lineno="308"><highlight class="stringliteral">Enable<sp/>power<sp/>saving<sp/>sleep<sp/>mode<sp/>after<sp/>&lt;input<sp/>name=&apos;sleepDelay&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a42ee2cfea91e6f7bef6775b2217437ab" kindref="member">sleepDelay</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;<sp/>mins?:<sp/>&lt;input<sp/>name=&apos;powerSave&apos;<sp/>type=&apos;checkbox&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/>((<ref refid="_settings__template_8h_1ab34445ad8a6760bf783c4a21677ceb67" kindref="member">powerSave</ref>)<sp/>?<sp/>(</highlight><highlight class="stringliteral">&quot;<sp/>checked&quot;</highlight><highlight class="normal">)<sp/>:<sp/>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&gt;\</highlight></codeline>
+<codeline lineno="309"><highlight class="stringliteral">&lt;br<sp/>/&gt;&lt;br<sp/>/&gt;\</highlight></codeline>
+<codeline lineno="310"><highlight class="stringliteral">Room<sp/>name:<sp/>&lt;input<sp/>name=&apos;room&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a2e8bcac3a4bc71ac4c9b9b5334803a56" kindref="member">room</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;\</highlight></codeline>
+<codeline lineno="311"><highlight class="stringliteral">&lt;br<sp/>/&gt;&lt;br<sp/>/&gt;\</highlight></codeline>
+<codeline lineno="312"><highlight class="stringliteral">Admin<sp/>password:<sp/>&lt;input<sp/>name=&apos;adminpw&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a05f3047c0f2b2de07e88277f0cc21e2d" kindref="member">www_password</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;\</highlight></codeline>
+<codeline lineno="313"><highlight class="stringliteral">&lt;br<sp/>/&gt;&lt;br<sp/>/&gt;\</highlight></codeline>
+<codeline lineno="314"><highlight class="stringliteral">&lt;table<sp/>width=&apos;500&apos;&gt;\</highlight></codeline>
+<codeline lineno="315"><highlight class="stringliteral"><sp/><sp/>&lt;tr&gt;\</highlight></codeline>
+<codeline lineno="316"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&amp;nbsp;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="317"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Lecturer<sp/>1&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="318"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Lecturer<sp/>2&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="319"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Lecturer<sp/>3&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="320"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Lecturer<sp/>4&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="321"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Lecturer<sp/>5&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="322"><highlight class="stringliteral"><sp/><sp/>&lt;/tr&gt;\</highlight></codeline>
+<codeline lineno="323"><highlight class="stringliteral"><sp/><sp/>&lt;tr&gt;\</highlight></codeline>
+<codeline lineno="324"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Name&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="325"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l1name&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[0]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="326"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l2name&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[1]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="327"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l3name&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[2]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="328"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l4name&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[3]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="329"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l5name&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[4]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="330"><highlight class="stringliteral"><sp/><sp/>&lt;/tr&gt;\</highlight></codeline>
+<codeline lineno="331"><highlight class="stringliteral"><sp/><sp/>&lt;tr&gt;\</highlight></codeline>
+<codeline lineno="332"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Key&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="333"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l1key&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[0]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="334"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l2key&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[1]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="335"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l3key&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[2]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="336"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l4key&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[3]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="337"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&lt;input<sp/>name=&apos;l5key&apos;<sp/>type=&apos;text&apos;<sp/>value=&apos;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[4]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&apos;&gt;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="338"><highlight class="stringliteral"><sp/><sp/>&lt;/tr&gt;\</highlight></codeline>
+<codeline lineno="339"><highlight class="stringliteral"><sp/><sp/>&lt;tr&gt;\</highlight></codeline>
+<codeline lineno="340"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;Status&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="341"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" kindref="member">generateStatusDropdown</ref>(0)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="342"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" kindref="member">generateStatusDropdown</ref>(1)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="343"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" kindref="member">generateStatusDropdown</ref>(2)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="344"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" kindref="member">generateStatusDropdown</ref>(3)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="345"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&lt;td&gt;&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" kindref="member">generateStatusDropdown</ref>(4)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&lt;/td&gt;\</highlight></codeline>
+<codeline lineno="346"><highlight class="stringliteral"><sp/><sp/>&lt;/tr&gt;\</highlight></codeline>
+<codeline lineno="347"><highlight class="stringliteral">&lt;/table&gt;\</highlight></codeline>
+<codeline lineno="348"><highlight class="stringliteral">&lt;input<sp/>type=&apos;submit&apos;<sp/>value=&apos;Save&apos;&gt;\</highlight></codeline>
+<codeline lineno="349"><highlight class="stringliteral">&lt;/form&gt;\</highlight></codeline>
+<codeline lineno="350"><highlight class="stringliteral">&lt;br<sp/>/&gt;&lt;br<sp/>/&gt;\</highlight></codeline>
+<codeline lineno="351"><highlight class="stringliteral">&lt;p&gt;&lt;a<sp/>href=&apos;/reset&apos;&gt;Reset<sp/>all<sp/>settings<sp/>and<sp/>run<sp/>Wi-Fi<sp/>setup&lt;/a&gt;&lt;/p&gt;\</highlight></codeline>
+<codeline lineno="352"><highlight class="stringliteral"><sp/><sp/>&lt;/body&gt;\</highlight></codeline>
+<codeline lineno="353"><highlight class="stringliteral">&lt;/html&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/>temp);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="356"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359" refid="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" refkind="member"><highlight class="normal">String<sp/><ref refid="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024" kindref="member">generateStatusDropdown</ref>(uint8_t<sp/>n)<sp/>{</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Generates<sp/>the<sp/>HTML<sp/>string<sp/>for<sp/>a<sp/>status<sp/>dropdown<sp/>of<sp/>the<sp/>given<sp/>lecturer<sp/>number<sp/>(n).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num<sp/>=<sp/>n<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/>String<sp/>tmphtml<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/>tmphtml<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;select<sp/>name=&apos;l&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)num<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;status&apos;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;option<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[n]<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Available&quot;</highlight><highlight class="normal">)<sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;selected<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;value=&apos;Available&apos;&gt;Available&lt;/option&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;option<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[n]<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Away&quot;</highlight><highlight class="normal">)<sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;selected<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;value=&apos;Away&apos;&gt;Away&lt;/option&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;option<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[n]<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;Busy&quot;</highlight><highlight class="normal">)<sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;selected<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;value=&apos;Busy&apos;&gt;Busy&lt;/option&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;option<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[n]<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;selected<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/>tmphtml<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;value=&apos;&apos;&gt;&lt;/option&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tmphtml;</highlight></codeline>
+<codeline lineno="382"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"></highlight></codeline>
+<codeline lineno="385" refid="_web_8ino_1ac7142ee2baa705d2dd402769467d5a4e" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1ac7142ee2baa705d2dd402769467d5a4e" kindref="member">saveSettings</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.authenticate(&amp;<ref refid="_settings__template_8h_1a340468ccda3167a9550ad102019a00bc" kindref="member">www_username</ref>[0u],<sp/>&amp;<ref refid="_settings__template_8h_1a05f3047c0f2b2de07e88277f0cc21e2d" kindref="member">www_password</ref>[0u]))<sp/>{</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.requestAuthentication();</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Login<sp/>OK&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a2e8bcac3a4bc71ac4c9b9b5334803a56" kindref="member">room</ref><sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;room&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1abc11962b1ccc3df5f1ce8ad620c977d4" kindref="member">busyNotif</ref><sp/>=<sp/>(<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;busyNotif&quot;</highlight><highlight class="normal">)<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;on&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//true<sp/>if<sp/>checked</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1ab34445ad8a6760bf783c4a21677ceb67" kindref="member">powerSave</ref><sp/>=<sp/>(<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;powerSave&quot;</highlight><highlight class="normal">)<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;on&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//true<sp/>if<sp/>checked</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a344ac98449beac1cdf80f0732b70fd9f" kindref="member">thres</ref><sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;threshold&quot;</highlight><highlight class="normal">).toFloat();</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a42ee2cfea91e6f7bef6775b2217437ab" kindref="member">sleepDelay</ref><sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;sleepDelay&quot;</highlight><highlight class="normal">).toInt();</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a05f3047c0f2b2de07e88277f0cc21e2d" kindref="member">www_password</ref><sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;adminpw&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[0]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l1name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[1]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l2name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[2]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l3name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[3]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l4name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[4]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l5name&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[0]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l1key&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[1]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l2key&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[2]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l3key&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[3]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l4key&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31" kindref="member">lecturerIFTTkeys</ref>[4]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l5key&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[0]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l1status&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[1]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l2status&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[2]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l3status&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[3]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l4status&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[4]<sp/>=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;l5status&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/>out<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;Saved!\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;a<sp/>href=&apos;/&apos;&gt;Go<sp/>back&lt;/a&gt;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/>out);</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_config_8ino_1a185d7f2d6e216d095034529d9e9d6776" kindref="member">saveConfig</ref>();<sp/></highlight><highlight class="comment">//commit<sp/>new<sp/>settings<sp/>to<sp/>config<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="417"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" kindref="member">writeNames</ref>();<sp/></highlight><highlight class="comment">//update<sp/>the<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="419"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"></highlight></codeline>
+<codeline lineno="422" refid="_web_8ino_1a54f2b176a577c7a89bb94da4f12cd06b" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a54f2b176a577c7a89bb94da4f12cd06b" kindref="member">handleNotFound</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="423"><highlight class="normal"><sp/><sp/>String<sp/>message<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;File<sp/>Not<sp/>Found\n\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"><sp/><sp/>message<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;URI:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/>message<sp/>+=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.uri();</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/>message<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\nMethod:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/>message<sp/>+=<sp/>(<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.method()<sp/>==<sp/>HTTP_GET)<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;GET&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;POST&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/>message<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\nArguments:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/>message<sp/>+=<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.args();</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/>message<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"></highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.args();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/>message<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.argName(i)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(i)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(404,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/>message);</highlight></codeline>
+<codeline lineno="436"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"></highlight></codeline>
+<codeline lineno="439" refid="_web_8ino_1a28576d900afa7ce8f3f4177cb38f61b9" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a28576d900afa7ce8f3f4177cb38f61b9" kindref="member">handleReset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.authenticate(&amp;<ref refid="_settings__template_8h_1a340468ccda3167a9550ad102019a00bc" kindref="member">www_username</ref>[0u],<sp/>&amp;<ref refid="_settings__template_8h_1a05f3047c0f2b2de07e88277f0cc21e2d" kindref="member">www_password</ref>[0u]))<sp/>{</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.requestAuthentication();</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Login<sp/>OK&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/>SPIFFS.remove(</highlight><highlight class="stringliteral">&quot;/config.json&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Wi-Fi<sp/>settings<sp/>reset.&lt;/h1&gt;&lt;p&gt;The<sp/>device<sp/>will<sp/>now<sp/>restart.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;Scan<sp/>for<sp/>and<sp/>connect<sp/>to<sp/>the<sp/>Setup<sp/>access<sp/>point.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;You<sp/>may<sp/>now<sp/>close<sp/>this<sp/>page.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" kindref="member">makePage</ref>(</highlight><highlight class="stringliteral">&quot;Reset<sp/>Wi-Fi<sp/>Settings&quot;</highlight><highlight class="normal">,<sp/>s));</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(1000);<sp/></highlight><highlight class="comment">//delay<sp/>to<sp/>finish<sp/>serving<sp/>the<sp/>page<sp/>before<sp/>restart</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP.restart();</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="453"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"></highlight></codeline>
+<codeline lineno="456" refid="_web_8ino_1a211179d239a3a6fdc1ba1b6d7df252ae" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1a211179d239a3a6fdc1ba1b6d7df252ae" kindref="member">handleSetupRoot</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"><sp/><sp/>String<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Lecturer<sp/>availability<sp/>door<sp/>announcer&lt;/h1&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;Final<sp/>year<sp/>BEng<sp/>project<sp/>by<sp/>Chris<sp/>Stubbs<sp/>(2019)&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;&lt;a<sp/>href=\&quot;/settings\&quot;&gt;Setup<sp/>wizard<sp/>for<sp/>standard<sp/>WiFi<sp/>(WPA2)&lt;/a&gt;&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;&lt;a<sp/>href=\&quot;/eduroam\&quot;&gt;Setup<sp/>wizard<sp/>for<sp/>eduroam<sp/>(WPA2-Enterprise)&lt;/a&gt;&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" kindref="member">makePage</ref>(</highlight><highlight class="stringliteral">&quot;Setup<sp/>Wizard&quot;</highlight><highlight class="normal">,<sp/>s));</highlight></codeline>
+<codeline lineno="462"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"></highlight></codeline>
+<codeline lineno="465" refid="_web_8ino_1af87f54300d1d09b658c30cff92a27f5b" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1af87f54300d1d09b658c30cff92a27f5b" kindref="member">handleSettings</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/>String<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Wi-Fi<sp/>Settings&lt;/h1&gt;&lt;p&gt;&lt;a<sp/>href=\&quot;/\&quot;&gt;Go<sp/>back&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Please<sp/>enter<sp/>settings<sp/>for<sp/>standard<sp/>WiFi<sp/>(WPA2).&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;form<sp/>method=\&quot;get\&quot;<sp/>action=\&quot;setap\&quot;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;table&gt;&lt;tr&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="469"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;td&gt;SSID:&lt;/td&gt;&lt;td&gt;&lt;select<sp/>name=\&quot;ssid\&quot;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="470"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref>;</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;/select&gt;&lt;/td&gt;&lt;/tr&gt;&lt;td&gt;Password:&lt;/td&gt;&lt;td&gt;&lt;input<sp/>name=\&quot;pass\&quot;<sp/>length=64<sp/>type=\&quot;password\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;input<sp/>type=\&quot;submit\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/form&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" kindref="member">makePage</ref>(</highlight><highlight class="stringliteral">&quot;Wi-Fi<sp/>Settings&quot;</highlight><highlight class="normal">,<sp/>s));</highlight></codeline>
+<codeline lineno="474"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"></highlight></codeline>
+<codeline lineno="477" refid="_web_8ino_1ac6b09eb8896b2e7975b32c3b4c82387b" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1ac6b09eb8896b2e7975b32c3b4c82387b" kindref="member">handleEduroam</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/>String<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Wi-Fi<sp/>Settings&lt;/h1&gt;&lt;p&gt;&lt;a<sp/>href=\&quot;/\&quot;&gt;Go<sp/>back&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Please<sp/>enter<sp/>settings<sp/>for<sp/>eduroam<sp/>(WPA2-Enterprise).&lt;/p&gt;&lt;p&gt;Password<sp/>is<sp/>typically<sp/>left<sp/>blank.&lt;/p&gt;&lt;p&gt;EAP<sp/>Identity<sp/>is<sp/>typically<sp/>your<sp/>university<sp/>email<sp/>address.&lt;/p&gt;&lt;p&gt;EAP<sp/>Password<sp/>is<sp/>typically<sp/>your<sp/>university<sp/>password.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;form<sp/>method=\&quot;get\&quot;<sp/>action=\&quot;setap\&quot;&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;table&gt;&lt;tr&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;td&gt;SSID:&lt;/td&gt;&lt;td&gt;&lt;select<sp/>name=\&quot;ssid\&quot;&gt;&lt;option<sp/>selected<sp/>value=\&quot;eduroam\&quot;&gt;eduroam&lt;/option&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/><ref refid="_web_8ino_1ae5d189232399d7728ea364065b9727c4" kindref="member">ssidList</ref>;</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;/select&gt;&lt;/td&gt;&lt;/tr&gt;&lt;td&gt;Password:&lt;?td&gt;&lt;td&gt;&lt;input<sp/>name=\&quot;pass\&quot;<sp/>length=64<sp/>type=\&quot;password\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="484"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;EAP<sp/>Identity:&lt;/td&gt;&lt;td&gt;&lt;input<sp/>name=\&quot;eapidentity\&quot;<sp/>length=64&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;EAP<sp/>Password:&lt;/td&gt;&lt;td&gt;&lt;input<sp/>name=\&quot;eappass\&quot;<sp/>length=64<sp/>type=\&quot;password\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;tr&gt;&lt;td&gt;&lt;input<sp/>type=\&quot;submit\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/form&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" kindref="member">makePage</ref>(</highlight><highlight class="stringliteral">&quot;Wi-Fi<sp/>Settings&quot;</highlight><highlight class="normal">,<sp/>s));</highlight></codeline>
+<codeline lineno="488"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"></highlight></codeline>
+<codeline lineno="491" refid="_web_8ino_1abc559dd4a64f6e15aff6bb8377de1e5c" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_web_8ino_1abc559dd4a64f6e15aff6bb8377de1e5c" kindref="member">handleSetAP</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="492"><highlight class="normal"><sp/><sp/><ref refid="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3" kindref="member">ssid</ref><sp/>=<sp/><ref refid="_web_8ino_1a229909254c88e9d103199da59b22bdd0" kindref="member">urlDecode</ref>(<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;ssid&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="493"><highlight class="normal"><sp/><sp/><ref refid="_settings__template_8h_1ac3c66d10da8649c07319cc2813bd5e5a" kindref="member">wifipsk</ref><sp/>=<sp/><ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_web_8ino_1a229909254c88e9d103199da59b22bdd0" kindref="member">urlDecode</ref>(<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;pass&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="494"><highlight class="normal"><sp/><sp/><ref refid="_settings__template_8h_1a385e90665734c058bd1dcdf5ee1f64f3" kindref="member">EAP_IDENTITY</ref><sp/>=<sp/><ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_web_8ino_1a229909254c88e9d103199da59b22bdd0" kindref="member">urlDecode</ref>(<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;eapidentity&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"><sp/><sp/><ref refid="_settings__template_8h_1af5df74874c991138efe45150fab7aa13" kindref="member">EAP_PASSWORD</ref><sp/>=<sp/><ref refid="_config_8ino_1a531e35e139960a373d7880a09a0c41ec" kindref="member">rot</ref>(<ref refid="_web_8ino_1a229909254c88e9d103199da59b22bdd0" kindref="member">urlDecode</ref>(<ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.arg(</highlight><highlight class="stringliteral">&quot;eappass&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="496"><highlight class="normal"><sp/><sp/><ref refid="_config_8ino_1a185d7f2d6e216d095034529d9e9d6776" kindref="member">saveConfig</ref>();</highlight></codeline>
+<codeline lineno="497"><highlight class="normal"></highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/>String<sp/>s<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&lt;h1&gt;Setup<sp/>complete.&lt;/h1&gt;&lt;p&gt;Device<sp/>will<sp/>be<sp/>connected<sp/>to<sp/>\&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/><ref refid="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3" kindref="member">ssid</ref>;</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>after<sp/>the<sp/>restart.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;Check<sp/>the<sp/>IP<sp/>address<sp/>displayed<sp/>on<sp/>the<sp/>device<sp/>and<sp/>access<sp/>this<sp/>page<sp/>from<sp/>your<sp/>web<sp/>browser<sp/>to<sp/>continue<sp/>the<sp/>setup<sp/>process.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;The<sp/>username<sp/>and<sp/>password<sp/>for<sp/>the<sp/>settings<sp/>portal<sp/>will<sp/>be<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a340468ccda3167a9550ad102019a00bc" kindref="member">www_username</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a05f3047c0f2b2de07e88277f0cc21e2d" kindref="member">www_password</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="503"><highlight class="normal"></highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/>s<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;&lt;p&gt;You<sp/>may<sp/>now<sp/>close<sp/>this<sp/>page.&lt;/p&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112" kindref="member">webServer</ref>.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d" kindref="member">makePage</ref>(</highlight><highlight class="stringliteral">&quot;Wi-Fi<sp/>Settings&quot;</highlight><highlight class="normal">,<sp/>s));</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"><sp/><sp/>delay(1000);<sp/></highlight><highlight class="comment">//delay<sp/>to<sp/>finish<sp/>serving<sp/>the<sp/>page<sp/>before<sp/>restart</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><sp/><sp/>ESP.restart();</highlight></codeline>
+<codeline lineno="508"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Web.ino"/>
+  </compounddef>
+</doxygen>

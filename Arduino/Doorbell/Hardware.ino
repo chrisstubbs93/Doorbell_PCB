@@ -1,19 +1,20 @@
-//===============================Hardware.h============================
-// Handles I2C multiplexer, connection to VCNL IR proximity sensors, proximity sensor related functions, initialisation of GPIO, scanning of buttons.
-//=====================================================================
+/**
+    \file Hardware.ino
+    Handles I2C multiplexer, connection to VCNL IR proximity sensors, proximity sensor related functions, initialisation of GPIO, scanning of buttons.
+*/
 
 //======================Variables for VCNL==============================
-long average[] =   {0, 0, 0, 0, 0, 0, 0, 0};
-long threshold[] = {0, 0, 0, 0, 0, 0, 0, 0};
-long reading[] =   {0, 0, 0, 0, 0, 0, 0, 0};
+long average[] =   {0, 0, 0, 0, 0, 0, 0, 0}; //!< Array of average reading of all sensors.
+long threshold[] = {0, 0, 0, 0, 0, 0, 0, 0}; //!< Array of threshold limits to trigger each sensor.
+long reading[] =   {0, 0, 0, 0, 0, 0, 0, 0}; //!< Current reading of each sensor.
 
-Adafruit_VCNL4010 vcnl;
+Adafruit_VCNL4010 vcnl; //!< Object for the VNCL sensor.
 
 //======================Variables for sleep==============================
-unsigned long lastPressed = 0;
+unsigned long lastPressed = 0; //!< Time in ms since boot that a sensor was last pressed. Used to determine when to enter sleep mode after inactivity.
 
+/*! Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused. */
 void initGPIO() {
-  //Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused.
   pinMode(BTNAPIN, INPUT);
   pinMode(BTNBPIN, INPUT);
   pinMode(INTERRUPTPIN, INPUT);
@@ -26,8 +27,8 @@ void initGPIO() {
   pinMode(LEDERRPIN, OUTPUT);
 }
 
+/*! Set the VCOM. This isn't normally needed unless the ePaper is particularly bad. */
 void setVCOM(unsigned char d) {
-  //Set the VCOM. This isn't normally needed unless the ePaper is particularly bad.
   digitalWrite(4, LOW);
   digitalWrite(15, LOW);
   SPI.transfer(0x2C); //Write VCOM register
@@ -38,7 +39,8 @@ void setVCOM(unsigned char d) {
   digitalWrite(15, HIGH);
 }
 
-void tcaselect(uint8_t i) { //sets the bus and checks it, retrying if it's not correct
+/*! Selects which i2c sub-bus on the mux for a specific sensor to connect to and checks it, retrying if it's not correct. (input 0...7) */
+void tcaselect(uint8_t i) { 
   if (i > 7) return;
   do {
     if (DEBUG_READINGS == 1) Serial.println((String)"[DEBUG] Selecting bus " + i);
@@ -48,7 +50,8 @@ void tcaselect(uint8_t i) { //sets the bus and checks it, retrying if it's not c
   } while (!(tcaget() == i));
 }
 
-int tcaget() { //returns the current bus of the mux 0...7
+/*! Check the current i2c sub-bus for a specific sensor. Output 0...7 */
+int tcaget() { 
   Wire.requestFrom(TCAADDR, 1);
   byte c = Wire.read();
   for (int i = 0; i <= 7; i++) {
@@ -57,6 +60,7 @@ int tcaget() { //returns the current bus of the mux 0...7
   }
 }
 
+/*! Attempt to initialise connected VCNL's one by one */
 void detectVCNLs() {
   Serial.println("[INFO] Autodetecting sensors....");
   //addToLog("Autodetecting sensors....");
@@ -85,6 +89,8 @@ void detectVCNLs() {
     errorMsg("Hardware error.\nNo VCNL sesnors found.\nContact support.");
   }
 }
+
+/*! Calibrate VCNL threshold by averaging N_THRES_SAMPLES samples and multiplying by thres */
 void calibrateVCNLs() {
   for (int bus = 0; bus < doorbells; bus++) {
     tcaselect(bus);
@@ -105,6 +111,7 @@ void calibrateVCNLs() {
   Serial.println("[INFO] Calibration done");
 }
 
+/*! Check if hardware buttons are pressed and run actions. */
 void checkButtons() {
   if (digitalRead(BTNAPIN)) {
     lastPressed = millis(); //record the button was pressed for sleep mode
@@ -119,6 +126,7 @@ void checkButtons() {
   }
 }
 
+/*! Determine if device should enter deep sleep for power saving. */
 void manageSleep() {
   if (powerSave) {
     if (millis() - lastPressed > sleepDelay * 60000) {
@@ -131,16 +139,17 @@ void manageSleep() {
   }
 }
 
+/*! Set up interrupts to wake device, then go to deep sleep for power saving. */
 void entersleep() {
   Serial.println("[INFO] Entering sleep mode");
   esp_sleep_enable_ext0_wakeup(GPIO_NUM_32, 0); //interrupt on VCNL sum
   esp_sleep_enable_ext1_wakeup(INTERRUPTPINMASK, ESP_EXT1_WAKEUP_ANY_HIGH); //interrupt on A/B buttons
   esp_sleep_enable_timer_wakeup(1800 * 1000000); //interrupt every hour to update battery etc
-  //future wakeup on button press (A/B) or low battery to send notification (or periodic update?)
-  delay(500);
+  delay(500); //delay to finish setup before CPU halted
   esp_deep_sleep_start();
 }
 
+/*! Print the reason for wakeup to the serial port. */
 void wakeup_reason() {
   esp_sleep_wakeup_cause_t wakeup_reason;
   wakeup_reason = esp_sleep_get_wakeup_cause();
@@ -155,6 +164,7 @@ void wakeup_reason() {
   }
 }
 
+/*! Determine type of boot mode. 1 = sensor interrupt, 2 = button interrupt, 3 = periodic timer wakeup, 6 = normal startup. */
 int bootmode() {
   esp_sleep_wakeup_cause_t wakeup_reason;
   wakeup_reason = esp_sleep_get_wakeup_cause();
@@ -165,6 +175,7 @@ int bootmode() {
   }
 }
 
+/*! Take reading from each sensor. Notify lecturer if above threshold. */
 void scanVCNLs() {
   if (settingMode) return;
   for (int bus = 0; bus < doorbells; bus++) {
@@ -200,6 +211,7 @@ void scanVCNLs() {
   }
 }
 
+/*! Set up interrupt on each device when threshold exceeded. (allows detection of touch interaction when CPU asleep). */
 void setupVCNLinterrupt() {
   //once the interrupt is set up, the proximity must only be read using background measurement
   for (int bus = 0; bus < doorbells; bus++) {
@@ -219,6 +231,7 @@ void setupVCNLinterrupt() {
   }
 }
 
+/*! Take a proximity reading without disturbing the interrupt setup. */
 uint16_t getBackgroundProximity() {
   vcnl.setLEDcurrent(LEDCURR); //Set IR LED on to take measurement
   delay(10); //small delay to allow IR LED to stabilise
@@ -229,6 +242,7 @@ uint16_t getBackgroundProximity() {
   return p;
 }
 
+/*! Determine which sensor caused a hardware interrupt. */
 int interruptSource() {
   for (int bus = 0; bus < doorbells; bus++) {
     tcaselect(bus);

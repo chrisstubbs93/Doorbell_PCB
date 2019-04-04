@@ -1,0 +1,546 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_hardware_8ino" kind="file" language="C++">
+    <compoundname>Hardware.ino</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long average[]</definition>
+        <argsstring>[]</argsstring>
+        <name>average</name>
+        <initializer>=   {0, 0, 0, 0, 0, 0, 0, 0}</initializer>
+        <briefdescription>
+<para>Array of average reading of all sensors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="7" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long threshold[]</definition>
+        <argsstring>[]</argsstring>
+        <name>threshold</name>
+        <initializer>= {0, 0, 0, 0, 0, 0, 0, 0}</initializer>
+        <briefdescription>
+<para>Array of threshold limits to trigger each sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="8" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long reading[]</definition>
+        <argsstring>[]</argsstring>
+        <name>reading</name>
+        <initializer>=   {0, 0, 0, 0, 0, 0, 0, 0}</initializer>
+        <briefdescription>
+<para>Current reading of each sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="9" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" prot="public" static="no" mutable="no">
+        <type>Adafruit_VCNL4010</type>
+        <definition>Adafruit_VCNL4010 vcnl</definition>
+        <argsstring></argsstring>
+        <name>vcnl</name>
+        <briefdescription>
+<para>Object for the VNCL sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="11" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long lastPressed</definition>
+        <argsstring></argsstring>
+        <name>lastPressed</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Time in ms since boot that a sensor was last pressed. Used to determine when to enter sleep mode after inactivity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="14" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_hardware_8ino_1ae8297bf2b99a2ad67af6f9a421ea4b16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initGPIO</definition>
+        <argsstring>()</argsstring>
+        <name>initGPIO</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="17" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="17" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1afa31143bec2c1e8b0b40e5806275fe66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setVCOM</definition>
+        <argsstring>(unsigned char d)</argsstring>
+        <name>setVCOM</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the VCOM. This isn&apos;t normally needed unless the ePaper is particularly bad. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="31" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="31" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tcaselect</definition>
+        <argsstring>(uint8_t i)</argsstring>
+        <name>tcaselect</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Selects which i2c sub-bus on the mux for a specific sensor to connect to and checks it, retrying if it&apos;s not correct. (input 0...7) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="43" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="43" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1a0fc8cb706c907413f791d3cd61d0a72b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int tcaget</definition>
+        <argsstring>()</argsstring>
+        <name>tcaget</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check the current i2c sub-bus for a specific sensor. Output 0...7 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="54" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="54" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1a8bd4857b6377960b5d845d5035bd0243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void detectVCNLs</definition>
+        <argsstring>()</argsstring>
+        <name>detectVCNLs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attempt to initialise connected VCNL&apos;s one by one </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="64" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="64" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1ab465fde968855441f09ae803a25261a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void calibrateVCNLs</definition>
+        <argsstring>()</argsstring>
+        <name>calibrateVCNLs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calibrate VCNL threshold by averaging N_THRES_SAMPLES samples and multiplying by thres </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="94" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="94" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1aa55f0755520915538688d090d46dd539" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void checkButtons</definition>
+        <argsstring>()</argsstring>
+        <name>checkButtons</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check if hardware buttons are pressed and run actions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="115" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="115" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1ad4c5e747325f2adbdafd68b6c6489e45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void manageSleep</definition>
+        <argsstring>()</argsstring>
+        <name>manageSleep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine if device should enter deep sleep for power saving. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="130" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="130" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1a849615dc867638f36cb84b744badf221" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void entersleep</definition>
+        <argsstring>()</argsstring>
+        <name>entersleep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set up interrupts to wake device, then go to deep sleep for power saving. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="143" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="143" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void wakeup_reason</definition>
+        <argsstring>()</argsstring>
+        <name>wakeup_reason</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Print the reason for wakeup to the serial port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="153" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="153" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1a5d34488889bea2a689fec065f2a1a063" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int bootmode</definition>
+        <argsstring>()</argsstring>
+        <name>bootmode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine type of boot mode. 1 = sensor interrupt, 2 = button interrupt, 3 = periodic timer wakeup, 6 = normal startup. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="168" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="168" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1a1d0e244aa65596a3fe94bf5c1dec999c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void scanVCNLs</definition>
+        <argsstring>()</argsstring>
+        <name>scanVCNLs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Take reading from each sensor. Notify lecturer if above threshold. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="179" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="179" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1ad64732af63d21d2459a2b99a71007975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupVCNLinterrupt</definition>
+        <argsstring>()</argsstring>
+        <name>setupVCNLinterrupt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set up interrupt on each device when threshold exceeded. (allows detection of touch interaction when CPU asleep). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="215" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="215" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1aeedc536a910003503ddc86c3a455d15b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t getBackgroundProximity</definition>
+        <argsstring>()</argsstring>
+        <name>getBackgroundProximity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Take a proximity reading without disturbing the interrupt setup. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="235" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="235" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="_hardware_8ino_1aa94b41c6422176525df39bf97ab00a44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int interruptSource</definition>
+        <argsstring>()</argsstring>
+        <name>interruptSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine which sensor caused a hardware interrupt. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" line="246" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino" bodystart="246" bodyend="255"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles I2C multiplexer, connection to VCNL IR proximity sensors, proximity sensor related functions, initialisation of GPIO, scanning of buttons. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="6"><highlight class="comment">//======================Variables<sp/>for<sp/>VCNL==============================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" kindref="member">average</ref>[]<sp/>=<sp/><sp/><sp/>{0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0};<sp/></highlight></codeline>
+<codeline lineno="8" refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[]<sp/>=<sp/>{0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0};<sp/></highlight></codeline>
+<codeline lineno="9" refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" kindref="member">reading</ref>[]<sp/>=<sp/><sp/><sp/>{0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0};<sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" refkind="member"><highlight class="normal">Adafruit_VCNL4010<sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>;<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//======================Variables<sp/>for<sp/>sleep==============================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1" kindref="member">lastPressed</ref><sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="_hardware_8ino_1ae8297bf2b99a2ad67af6f9a421ea4b16" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ae8297bf2b99a2ad67af6f9a421ea4b16" kindref="member">initGPIO</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>pinMode(BTNAPIN,<sp/>INPUT);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>pinMode(BTNBPIN,<sp/>INPUT);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>pinMode(INTERRUPTPIN,<sp/>INPUT);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>pinMode(BATTMONPIN,<sp/>INPUT);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>pinMatrixInDetach(VSPIQ_OUT_IDX,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//detatch<sp/>pin<sp/>19<sp/>from<sp/>the<sp/>VSPI<sp/>MISO.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>pinMode(LEDAVAILPIN,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>pinMode(LEDBUSYPIN,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>pinMode(LEDOKPIN,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>pinMode(LEDERRPIN,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="_hardware_8ino_1afa31143bec2c1e8b0b40e5806275fe66" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1afa31143bec2c1e8b0b40e5806275fe66" kindref="member">setVCOM</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>d)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>digitalWrite(4,<sp/>LOW);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>digitalWrite(15,<sp/>LOW);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>SPI.transfer(0x2C);<sp/></highlight><highlight class="comment">//Write<sp/>VCOM<sp/>register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>digitalWrite(15,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>digitalWrite(4,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>digitalWrite(15,<sp/>LOW);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>SPI.transfer(d);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>digitalWrite(15,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" kindref="member">tcaselect</ref>(uint8_t<sp/>i)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&gt;<sp/>7)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(DEBUG_READINGS<sp/>==<sp/>1)<sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[DEBUG]<sp/>Selecting<sp/>bus<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>Wire.beginTransmission(TCAADDR);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>Wire.write(1<sp/>&lt;&lt;<sp/>i);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>Wire.endTransmission();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!(<ref refid="_hardware_8ino_1a0fc8cb706c907413f791d3cd61d0a72b" kindref="member">tcaget</ref>()<sp/>==<sp/>i));</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="_hardware_8ino_1a0fc8cb706c907413f791d3cd61d0a72b" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1a0fc8cb706c907413f791d3cd61d0a72b" kindref="member">tcaget</ref>()<sp/>{<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>Wire.requestFrom(TCAADDR,<sp/>1);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>c<sp/>=<sp/>Wire.read();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>7;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(c<sp/>==<sp/>0x01)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>c<sp/>=<sp/>c<sp/>&gt;&gt;<sp/>1;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="_hardware_8ino_1a8bd4857b6377960b5d845d5035bd0243" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1a8bd4857b6377960b5d845d5035bd0243" kindref="member">detectVCNLs</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Autodetecting<sp/>sensors....&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//addToLog(&quot;Autodetecting<sp/>sensors....&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bus<sp/>=<sp/>0;<sp/>bus<sp/>&lt;=<sp/>7;<sp/>bus++)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" kindref="member">tcaselect</ref>(bus);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>trynum<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!<sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.begin()<sp/>&amp;&amp;<sp/>trynum<sp/>&lt;<sp/>TRIES)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(DEBUG_READINGS<sp/>==<sp/>1)<sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[DEBUG]<sp/>Try<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>trynum);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>trynum++;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(trynum<sp/>&lt;<sp/>TRIES)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//found</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Found<sp/>VCNL40xx<sp/>on<sp/>bus<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>bus);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref>++;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//not<sp/>found</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>No<sp/>VCNL40xx<sp/>on<sp/>bus<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)bus<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>terminating<sp/>autodetection.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Number<sp/>of<sp/>doorbells<sp/>found:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)<ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//addToLog((String)doorbells<sp/>+<sp/>&quot;<sp/>sensors<sp/>found.&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(</highlight><highlight class="stringliteral">&quot;Hardware<sp/>error.\nNo<sp/>VCNL<sp/>sesnors<sp/>found.\nContact<sp/>support.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="_hardware_8ino_1ab465fde968855441f09ae803a25261a8" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ab465fde968855441f09ae803a25261a8" kindref="member">calibrateVCNLs</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bus<sp/>=<sp/>0;<sp/>bus<sp/>&lt;<sp/><ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref>;<sp/>bus++)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" kindref="member">tcaselect</ref>(bus);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Calibrating<sp/>proximity<sp/>threshold<sp/>on<sp/>bus<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)bus<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.setLEDcurrent(LEDCURR);<sp/></highlight><highlight class="comment">//Set<sp/>IR<sp/>LED<sp/>on<sp/>to<sp/>take<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(10);<sp/></highlight><highlight class="comment">//small<sp/>delay<sp/>to<sp/>allow<sp/>IR<sp/>LED<sp/>to<sp/>stabilise</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>N_THRES_SAMPLES;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.readProximity();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" kindref="member">average</ref>[bus]<sp/>=<sp/><ref refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" kindref="member">average</ref>[bus]<sp/>+<sp/>tmp;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print((String)((100<sp/>/<sp/>N_THRES_SAMPLES)*i)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;%<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.setLEDcurrent(0);<sp/></highlight><highlight class="comment">//Set<sp/>IR<sp/>LED<sp/>off</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" kindref="member">average</ref>[bus]<sp/>=<sp/><ref refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" kindref="member">average</ref>[bus]<sp/>/<sp/>N_THRES_SAMPLES;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[bus]<sp/>=<sp/><ref refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" kindref="member">average</ref>[bus]<sp/>*<sp/><ref refid="_settings__template_8h_1a344ac98449beac1cdf80f0732b70fd9f" kindref="member">thres</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;Average<sp/>level<sp/>was:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d" kindref="member">average</ref>[bus]<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>Threshold<sp/>set<sp/>to:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[bus]);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Calibration<sp/>done&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="_hardware_8ino_1aa55f0755520915538688d090d46dd539" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1aa55f0755520915538688d090d46dd539" kindref="member">checkButtons</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1" kindref="member">lastPressed</ref><sp/>=<sp/>millis();<sp/></highlight><highlight class="comment">//record<sp/>the<sp/>button<sp/>was<sp/>pressed<sp/>for<sp/>sleep<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Button<sp/>A<sp/>Pressed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a6da7bf7685a4f65561ec15045a11b993" kindref="member">showInfo</ref>();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/>{}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1" kindref="member">lastPressed</ref><sp/>=<sp/>millis();<sp/></highlight><highlight class="comment">//record<sp/>the<sp/>button<sp/>was<sp/>pressed<sp/>for<sp/>sleep<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Button<sp/>B<sp/>Pressed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/>{}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="_hardware_8ino_1ad4c5e747325f2adbdafd68b6c6489e45" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ad4c5e747325f2adbdafd68b6c6489e45" kindref="member">manageSleep</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1ab34445ad8a6760bf783c4a21677ceb67" kindref="member">powerSave</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(millis()<sp/>-<sp/><ref refid="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1" kindref="member">lastPressed</ref><sp/>&gt;<sp/><ref refid="_settings__template_8h_1a42ee2cfea91e6f7bef6775b2217437ab" kindref="member">sleepDelay</ref><sp/>*<sp/>60000)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//go<sp/>to<sp/>sleep<sp/>if<sp/>no<sp/>activity<sp/>for<sp/>x<sp/>mins</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1ad64732af63d21d2459a2b99a71007975" kindref="member">setupVCNLinterrupt</ref>();<sp/></highlight><highlight class="comment">//set<sp/>up<sp/>the<sp/>VCNLs<sp/>for<sp/>interrupt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1afc77d1fb95870b5511dffff362261cb6" kindref="member">sleeping</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//set<sp/>the<sp/>sleeping<sp/>flag</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" kindref="member">writeNames</ref>();<sp/></highlight><highlight class="comment">//show<sp/>the<sp/>sleeping<sp/>flag<sp/>on<sp/>screen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1a849615dc867638f36cb84b744badf221" kindref="member">entersleep</ref>();<sp/></highlight><highlight class="comment">//go<sp/>to<sp/>sleep</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="_hardware_8ino_1a849615dc867638f36cb84b744badf221" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1a849615dc867638f36cb84b744badf221" kindref="member">entersleep</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Entering<sp/>sleep<sp/>mode&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>esp_sleep_enable_ext0_wakeup(GPIO_NUM_32,<sp/>0);<sp/></highlight><highlight class="comment">//interrupt<sp/>on<sp/>VCNL<sp/>sum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>esp_sleep_enable_ext1_wakeup(INTERRUPTPINMASK,<sp/>ESP_EXT1_WAKEUP_ANY_HIGH);<sp/></highlight><highlight class="comment">//interrupt<sp/>on<sp/>A/B<sp/>buttons</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>esp_sleep_enable_timer_wakeup(1800<sp/>*<sp/>1000000);<sp/></highlight><highlight class="comment">//interrupt<sp/>every<sp/>hour<sp/>to<sp/>update<sp/>battery<sp/>etc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>delay(500);<sp/></highlight><highlight class="comment">//delay<sp/>to<sp/>finish<sp/>setup<sp/>before<sp/>CPU<sp/>halted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>esp_deep_sleep_start();</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>esp_sleep_wakeup_cause_t<sp/><ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref><sp/>=<sp/>esp_sleep_get_wakeup_cause();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref>)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1<sp/><sp/>:<sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Wakeup<sp/>caused<sp/>by<sp/>external<sp/>signal<sp/>using<sp/>RTC_IO&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//EXT0<sp/>-<sp/>VCNL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2<sp/><sp/>:<sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Wakeup<sp/>caused<sp/>by<sp/>external<sp/>signal<sp/>using<sp/>RTC_CNTL&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//EXT1<sp/>-<sp/>A/B</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>3<sp/><sp/>:<sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Wakeup<sp/>caused<sp/>by<sp/>timer&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4<sp/><sp/>:<sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Wakeup<sp/>caused<sp/>by<sp/>touchpad&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>5<sp/><sp/>:<sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Wakeup<sp/>caused<sp/>by<sp/>ULP<sp/>program&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>default<sp/>:<sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Wakeup<sp/>was<sp/>not<sp/>caused<sp/>by<sp/>deep<sp/>sleep&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="_hardware_8ino_1a5d34488889bea2a689fec065f2a1a063" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1a5d34488889bea2a689fec065f2a1a063" kindref="member">bootmode</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>esp_sleep_wakeup_cause_t<sp/><ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref>;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref><sp/>=<sp/>esp_sleep_get_wakeup_cause();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref><sp/>&gt;<sp/>5<sp/>or<sp/><ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref><sp/>&lt;<sp/>1){</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>6;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad" kindref="member">wakeup_reason</ref>;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="_hardware_8ino_1a1d0e244aa65596a3fe94bf5c1dec999c" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1a1d0e244aa65596a3fe94bf5c1dec999c" kindref="member">scanVCNLs</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_doorbell_8ino_1a5c64e18eb1e6df97544212e53facd531" kindref="member">settingMode</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bus<sp/>=<sp/>0;<sp/>bus<sp/>&lt;<sp/><ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref>;<sp/>bus++)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" kindref="member">tcaselect</ref>(bus);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.setLEDcurrent(LEDCURR);<sp/></highlight><highlight class="comment">//Set<sp/>IR<sp/>LED<sp/>on<sp/>to<sp/>take<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(10);<sp/></highlight><highlight class="comment">//small<sp/>delay<sp/>to<sp/>allow<sp/>IR<sp/>LED<sp/>to<sp/>stabilise</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" kindref="member">reading</ref>[bus]<sp/>=<sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.readProximity();</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" kindref="member">reading</ref>[bus]<sp/>&gt;<sp/><ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[bus])<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Doorbell<sp/>pressed<sp/>on<sp/>bus<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>bus<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>reading:&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" kindref="member">reading</ref>[bus]);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_web_8ino_1a4b775e1d95473a982717aaa2da30e4f5" kindref="member">ring</ref>(bus);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" kindref="member">reading</ref>[bus]<sp/>&gt;<sp/><ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[bus])</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" kindref="member">reading</ref>[bus]<sp/>=<sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.readProximity();</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(SCAN_INTERVAL);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Set<sp/>LED<sp/>off<sp/>to<sp/>save<sp/>power</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.setLEDcurrent(0);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(DEBUG_READINGS<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;[DEBUG]<sp/>Current<sp/>readings:,&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>7;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[50];</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;%05d,&quot;</highlight><highlight class="normal">,<sp/><ref refid="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a" kindref="member">reading</ref>[i]);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(buf);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;[DEBUG]<sp/>Thresholds:<sp/><sp/><sp/><sp/><sp/><sp/>,&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>7;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[50];</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;%05d,&quot;</highlight><highlight class="normal">,<sp/><ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[i]);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(buf);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215" refid="_hardware_8ino_1ad64732af63d21d2459a2b99a71007975" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1ad64732af63d21d2459a2b99a71007975" kindref="member">setupVCNLinterrupt</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//once<sp/>the<sp/>interrupt<sp/>is<sp/>set<sp/>up,<sp/>the<sp/>proximity<sp/>must<sp/>only<sp/>be<sp/>read<sp/>using<sp/>background<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bus<sp/>=<sp/>0;<sp/>bus<sp/>&lt;<sp/><ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref>;<sp/>bus++)<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" kindref="member">tcaselect</ref>(bus);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Setting<sp/>interrupt<sp/>on<sp/>bus<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)bus<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.setLEDcurrent(LEDCURR);<sp/></highlight><highlight class="comment">//Set<sp/>IR<sp/>LED<sp/>on<sp/>to<sp/>take<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(10);<sp/></highlight><highlight class="comment">//small<sp/>delay<sp/>to<sp/>allow<sp/>IR<sp/>LED<sp/>to<sp/>stabilise</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.write8(0x89,<sp/>0x02);<sp/></highlight><highlight class="comment">//set<sp/>up<sp/>interrupt<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//set<sp/>low<sp/>thres<sp/>to<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.write8(0x8A,<sp/>0x00);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.write8(0x8B,<sp/>0x00);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//set<sp/>high<sp/>thres<sp/>to<sp/>value<sp/>from<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.write8(0x8C,<sp/>highByte(<ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[bus]));</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.write8(0x8D,<sp/>lowByte(<ref refid="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85" kindref="member">threshold</ref>[bus]));</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//run<sp/>continuous<sp/>measurements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.write8(0x80,<sp/>0x03);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="_hardware_8ino_1aeedc536a910003503ddc86c3a455d15b" refkind="member"><highlight class="normal">uint16_t<sp/><ref refid="_hardware_8ino_1aeedc536a910003503ddc86c3a455d15b" kindref="member">getBackgroundProximity</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.setLEDcurrent(LEDCURR);<sp/></highlight><highlight class="comment">//Set<sp/>IR<sp/>LED<sp/>on<sp/>to<sp/>take<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>delay(10);<sp/></highlight><highlight class="comment">//small<sp/>delay<sp/>to<sp/>allow<sp/>IR<sp/>LED<sp/>to<sp/>stabilise</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.write8(0x80,<sp/>0x03);<sp/></highlight><highlight class="comment">//run<sp/>continuous<sp/>measurements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>uint16_t<sp/>p<sp/>=<sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.read8(0x87);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>p<sp/>=<sp/>p<sp/>&lt;&lt;<sp/>8;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>p<sp/>=<sp/>p<sp/>+<sp/><ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.read8(0x88);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>p;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246" refid="_hardware_8ino_1aa94b41c6422176525df39bf97ab00a44" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_hardware_8ino_1aa94b41c6422176525df39bf97ab00a44" kindref="member">interruptSource</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bus<sp/>=<sp/>0;<sp/>bus<sp/>&lt;<sp/><ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref>;<sp/>bus++)<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c" kindref="member">tcaselect</ref>(bus);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Serial.print((String)&quot;Device<sp/>&quot;<sp/>+<sp/>bus<sp/>+<sp/>&quot;<sp/>has<sp/>an<sp/>interrupt<sp/>register<sp/>with<sp/>contents<sp/>&quot;);<sp/>Serial.println(vcnl.read8(0x8E),HEX);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11" kindref="member">vcnl</ref>.read8(0x8E)<sp/>&amp;<sp/>0x01)<sp/>{<sp/></highlight><highlight class="comment">//check<sp/>interrupt<sp/>register<sp/>on<sp/>VCNL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bus;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/Hardware.ino"/>
+  </compounddef>
+</doxygen>

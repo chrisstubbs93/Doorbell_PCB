@@ -1,13 +1,14 @@
-//=================================GUI.h==============================
-// Handles drawing of GUI elements on ePaper display
-//=====================================================================
+/**
+    \file GUI.ino
+    Handles drawing of GUI elements on ePaper display
+*/
 
 //======================Variables for GUI==============================
-String logbuffer[8] = { "", "", "", "", "", "", "", "" };
-String cat = String();
-const GFXfont* font = &FreeMonoBold9pt7b;
+String logbuffer[8] = { "", "", "", "", "", "", "", "" }; //!< Buffer of last 8 log messages to show on screen. FIFO queue.
+const GFXfont* font = &FreeMonoBold9pt7b; //!< Define the font used for the GUI.
 
-void displayVersion() //Displays an LSBU splashscreen followed by a description/version no. splashscreen
+/*! Displays an LSBU splashscreen followed by a description/version no. splashscreen. */
+void displayVersion()
 {
   //set up parameters
   display.setRotation(1);
@@ -33,7 +34,7 @@ void displayVersion() //Displays an LSBU splashscreen followed by a description/
   delay(3000);
 }
 
-
+/*! Displays a full screen error message with title and content for 5 seconds. Can be dismissed by pressing either button. Message is also printed to the serial port and the ERROR LED flashed. */
 void errorMsg(String ermsg)
 {
   digitalWrite(LEDERRPIN, HIGH);
@@ -57,6 +58,7 @@ void errorMsg(String ermsg)
   digitalWrite(LEDERRPIN, LOW);
 }
 
+/*! Instructs user to connect to access point and run setup wizard. */
 void setupMsg(String apSSID)
 {
   Serial.println((String)"[INFO] Starting config access point named " + apSSID);
@@ -75,6 +77,7 @@ void setupMsg(String apSSID)
   display.update();
 }
 
+/*! Write the room name, all lecturer names, status, battery percentage and sleep status to the display. */
 void writeNames()
 {
   display.setRotation(1);
@@ -107,6 +110,8 @@ void writeNames()
 
   display.update(); //Send buffer to display
 }
+
+/*! Shuffle the log buffer and add a new time. Display log. */
 void addToLog(const String n)
 {
   for (int i = 0; i < 7; i++) {
@@ -116,6 +121,7 @@ void addToLog(const String n)
   displayLog();
 }
 
+/*! Display all log items in the buffer, most recent at the bottom. */
 void displayLog()
 {
   display.setRotation(1);
@@ -128,6 +134,8 @@ void displayLog()
   }
   display.update();
 }
+
+/*! Remove all entries in the log buffer. */
 void clearLog()
 {
   for (int i = 0; i <= 7; i++) {
@@ -135,6 +143,7 @@ void clearLog()
   }
 }
 
+/*! Shows simple menu with FW version, IP, n sensors found. Also allows user to initiate a reset of the device configuration. */
 void showInfo() {
   //set up parameters
   bool shown = false;
@@ -196,6 +205,7 @@ void showInfo() {
   writeNames();
 }
 
+/*! Wrap words around spaces to print nicely on screen. */
 String wordWrap(String in) {
   if (in.length() > 27) {
     for (int i = 27; i > 1; i--) { //work backwards from limit of string to first space

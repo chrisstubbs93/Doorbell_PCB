@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_g_u_i_8ino" kind="file" language="C++">
+    <compoundname>GUI.ino</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String logbuffer[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>logbuffer</name>
+        <initializer>= { &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot; }</initializer>
+        <briefdescription>
+<para>Buffer of last 8 log messages to show on screen. FIFO queue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="7" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" prot="public" static="no" mutable="no">
+        <type>const GFXfont *</type>
+        <definition>const GFXfont* font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <initializer>= &amp;FreeMonoBold9pt7b</initializer>
+        <briefdescription>
+<para>Define the font used for the GUI. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="8" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_g_u_i_8ino_1a6d2ae46e53ca384472c7c54d3a75ef38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void displayVersion</definition>
+        <argsstring>()</argsstring>
+        <name>displayVersion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Displays an LSBU splashscreen followed by a description/version no. splashscreen. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="11" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="11" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void errorMsg</definition>
+        <argsstring>(String ermsg)</argsstring>
+        <name>errorMsg</name>
+        <param>
+          <type>String</type>
+          <declname>ermsg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Displays a full screen error message with title and content for 5 seconds. Can be dismissed by pressing either button. Message is also printed to the serial port and the ERROR LED flashed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="38" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="38" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1ae2698a607f6e5be64f909e7ef2b9a579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setupMsg</definition>
+        <argsstring>(String apSSID)</argsstring>
+        <name>setupMsg</name>
+        <param>
+          <type>String</type>
+          <declname>apSSID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Instructs user to connect to access point and run setup wizard. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="62" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="62" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void writeNames</definition>
+        <argsstring>()</argsstring>
+        <name>writeNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the room name, all lecturer names, status, battery percentage and sleep status to the display. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="81" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="81" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1a138c0032519f7273647d99d811789e9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addToLog</definition>
+        <argsstring>(const String n)</argsstring>
+        <name>addToLog</name>
+        <param>
+          <type>const String</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Shuffle the log buffer and add a new time. Display log. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="115" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="115" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1a08da0e1bab37e09ab0e424b1693c2fe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void displayLog</definition>
+        <argsstring>()</argsstring>
+        <name>displayLog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Display all log items in the buffer, most recent at the bottom. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="125" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="125" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1ae2d5212eb62104cb3219318f03f23734" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearLog</definition>
+        <argsstring>()</argsstring>
+        <name>clearLog</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Remove all entries in the log buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="139" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="139" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1a6da7bf7685a4f65561ec15045a11b993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void showInfo</definition>
+        <argsstring>()</argsstring>
+        <name>showInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Shows simple menu with FW version, IP, n sensors found. Also allows user to initiate a reset of the device configuration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="147" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="147" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="_g_u_i_8ino_1ab945e0c8dbab7335f8dab9a01363277e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String wordWrap</definition>
+        <argsstring>(String in)</argsstring>
+        <name>wordWrap</name>
+        <param>
+          <type>String</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap words around spaces to print nicely on screen. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" line="209" column="1" bodyfile="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino" bodystart="209" bodyend="220"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles drawing of GUI elements on ePaper display </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="6"><highlight class="comment">//======================Variables<sp/>for<sp/>GUI==============================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" refkind="member"><highlight class="normal">String<sp/><ref refid="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" kindref="member">logbuffer</ref>[8]<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>};<sp/></highlight></codeline>
+<codeline lineno="8" refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GFXfont*<sp/><ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref><sp/>=<sp/>&amp;FreeMonoBold9pt7b;<sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="_g_u_i_8ino_1a6d2ae46e53ca384472c7c54d3a75ef38" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1a6d2ae46e53ca384472c7c54d3a75ef38" kindref="member">displayVersion</ref>()</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//set<sp/>up<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//show<sp/>LSBU<sp/>logo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.drawBitmap(0,<sp/>0,<sp/>BmpLSBU,<sp/>296,<sp/>128,<sp/>GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>delay(2000);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Show<sp/>version</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>0);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Lecturer<sp/>availability<sp/>door&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;announcer&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Final<sp/>year<sp/>BEng<sp/>project&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;By<sp/>Chris<sp/>Stubbs<sp/>2018/19&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println((String)</highlight><highlight class="stringliteral">&quot;FW<sp/>Revision:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)VERSION);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Starting<sp/>up...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>delay(3000);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a" kindref="member">errorMsg</ref>(String<sp/>ermsg)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>digitalWrite(LEDERRPIN,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>String<sp/>tmpermsg<sp/>=<sp/>ermsg;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>tmpermsg.replace(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;[ERROR]<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>tmpermsg);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>0);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;!!!----!!!<sp/>Error<sp/>!!!----!!!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(ermsg);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>tmr<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((millis()<sp/>-<sp/>tmr<sp/>&lt;<sp/>5000))<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//allow<sp/>button<sp/>press<sp/>to<sp/>dismiss<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>digitalWrite(LEDERRPIN,<sp/>LOW);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="_g_u_i_8ino_1ae2698a607f6e5be64f909e7ef2b9a579" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1ae2698a607f6e5be64f909e7ef2b9a579" kindref="member">setupMsg</ref>(String<sp/><ref refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" kindref="member">apSSID</ref>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Starting<sp/>config<sp/>access<sp/>point<sp/>named<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" kindref="member">apSSID</ref>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>Serial.println((String)</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Starting<sp/>config<sp/>web<sp/>server<sp/>at<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>WiFi.softAPIP().toString());</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>14);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;-------<sp/>Config<sp/>Mode<sp/>-------&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Scan<sp/>for<sp/>access<sp/>points&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;and<sp/>connect<sp/>to<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09" kindref="member">apSSID</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Go<sp/>to<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>WiFi.softAPIP().toString());</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;to<sp/>set<sp/>up.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" kindref="member">writeNames</ref>()</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>14);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;--------<sp/>Room<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a2e8bcac3a4bc71ac4c9b9b5334803a56" kindref="member">room</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>--------&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>5;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>35<sp/>+<sp/>(16<sp/>*<sp/>i));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(<ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[i]);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(175,<sp/>35<sp/>+<sp/>(16<sp/>*<sp/>i));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_settings__template_8h_1aef601240759de95e43a915cc331a959b" kindref="member">lecturerNames</ref>[i]<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(190,<sp/>35<sp/>+<sp/>(16<sp/>*<sp/>i));</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(<ref refid="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a" kindref="member">lecturerStatus</ref>[i]);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(270,<sp/>122);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_doorbell_8ino_1afc77d1fb95870b5511dffff362261cb6" kindref="member">sleeping</ref>)<sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Zz&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Draw<sp/>battery<sp/>icon<sp/>and<sp/>percentage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>VBAT<sp/>=<sp/>((200.0f<sp/>/<sp/>100.0f)<sp/>*<sp/>3.30f<sp/>*<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">(analogRead(BATTMONPIN))<sp/>/<sp/>4095.0f)<sp/>+<sp/>0.2f;<sp/></highlight><highlight class="comment">//<sp/>LiPo<sp/>battery</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vbatt<sp/>=<sp/>(float)((100.0f<sp/>/<sp/>4.2f)<sp/>*<sp/>VBAT);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;[INFO]<sp/>Battery<sp/>Voltage<sp/>=<sp/>&quot;</highlight><highlight class="normal">);<sp/>Serial.print(VBAT,<sp/>2);<sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;<sp/>V&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.drawRect(1,<sp/>113,<sp/>30,<sp/>13,<sp/>GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.drawRect(2,<sp/>114,<sp/>28,<sp/>11,<sp/>GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillRect(31,<sp/>116,<sp/>3,<sp/>7,<sp/>GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillRect(1,<sp/>113,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)(vbatt<sp/>/<sp/>3.33),<sp/>13,<sp/>GxEPD_BLACK);<sp/></highlight><highlight class="comment">//fill<sp/>to<sp/>battery<sp/>%</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(35,<sp/>123);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println((String)vbatt<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();<sp/></highlight><highlight class="comment">//Send<sp/>buffer<sp/>to<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="_g_u_i_8ino_1a138c0032519f7273647d99d811789e9d" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1a138c0032519f7273647d99d811789e9d" kindref="member">addToLog</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>String<sp/>n)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>7;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" kindref="member">logbuffer</ref>[i]<sp/>=<sp/><ref refid="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" kindref="member">logbuffer</ref>[i<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><ref refid="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" kindref="member">logbuffer</ref>[7]<sp/>=<sp/>n;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="_g_u_i_8ino_1a08da0e1bab37e09ab0e424b1693c2fe0" kindref="member">displayLog</ref>();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="_g_u_i_8ino_1a08da0e1bab37e09ab0e424b1693c2fe0" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1a08da0e1bab37e09ab0e424b1693c2fe0" kindref="member">displayLog</ref>()</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>0);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>8;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(<ref refid="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" kindref="member">logbuffer</ref>[i]);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="_g_u_i_8ino_1ae2d5212eb62104cb3219318f03f23734" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1ae2d5212eb62104cb3219318f03f23734" kindref="member">clearLog</ref>()</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>7;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f" kindref="member">logbuffer</ref>[i]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="_g_u_i_8ino_1a6da7bf7685a4f65561ec15045a11b993" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_g_u_i_8ino_1a6da7bf7685a4f65561ec15045a11b993" kindref="member">showInfo</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//set<sp/>up<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>shown<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!shown)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setRotation(1);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setTextColor(GxEPD_BLACK);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setFont(<ref refid="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de" kindref="member">font</ref>);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>14);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println((String)</highlight><highlight class="stringliteral">&quot;FW<sp/>Revision:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>(String)VERSION);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;IP<sp/>addr:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>WiFi.localIP().toString());</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Connected<sp/>to<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3" kindref="member">ssid</ref>);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println((String)<ref refid="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766" kindref="member">doorbells</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>sensors<sp/>found&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;[A]-Close<sp/><sp/>[B]-Reset&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>shown<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/>{}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>tmr<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((millis()<sp/>-<sp/>tmr<sp/>&lt;<sp/>60000))<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_web_8ino_1a6f6f044bce35a405bc05f223e20f8cf7" kindref="member">wifiTasks</ref>();</highlight><highlight class="comment">//Run<sp/>WiFi<sp/>background<sp/>tasks<sp/>while<sp/>waiting</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/>{}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.fillScreen(GxEPD_WHITE);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Are<sp/>you<sp/>sure<sp/>you<sp/>want<sp/>to\nreset<sp/>this<sp/>device?&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.setCursor(0,<sp/>14);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;Are<sp/>you<sp/>sure<sp/>you<sp/>want<sp/>to&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;reset<sp/>this<sp/>device?&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;All<sp/>settings<sp/>will<sp/>be<sp/>lost.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;[A]-No&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.println(</highlight><highlight class="stringliteral">&quot;[B]-Yes<sp/>(hold<sp/>for<sp/>5<sp/>sec)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0" kindref="member">display</ref>.update();</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNAPIN))<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shown<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>tmr2<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(digitalRead(BTNBPIN))<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((millis()<sp/>-<sp/>tmr2<sp/>&gt;<sp/>5000))<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Clear<sp/>settings<sp/>and<sp/>restart</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SPIFFS.remove(</highlight><highlight class="stringliteral">&quot;/config.json&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(1000);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP.restart();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><ref refid="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde" kindref="member">writeNames</ref>();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="_g_u_i_8ino_1ab945e0c8dbab7335f8dab9a01363277e" refkind="member"><highlight class="normal">String<sp/><ref refid="_g_u_i_8ino_1ab945e0c8dbab7335f8dab9a01363277e" kindref="member">wordWrap</ref>(String<sp/>in)<sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(in.length()<sp/>&gt;<sp/>27)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>27;<sp/>i<sp/>&gt;<sp/>1;<sp/>i--)<sp/>{<sp/></highlight><highlight class="comment">//work<sp/>backwards<sp/>from<sp/>limit<sp/>of<sp/>string<sp/>to<sp/>first<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(in.charAt(i)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(in.substring(0,<sp/>i)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>in.substring(i<sp/>+<sp/>1,<sp/>in.length()));<sp/></highlight><highlight class="comment">//there<sp/>is<sp/>a<sp/>space<sp/>to<sp/>replace<sp/>with<sp/>a<sp/>line<sp/>break</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>in;<sp/></highlight><highlight class="comment">//There<sp/>were<sp/>no<sp/>spaces<sp/>to<sp/>replace,<sp/>return<sp/>plain<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>in;<sp/></highlight><highlight class="comment">//String<sp/>will<sp/>fit<sp/>on<sp/>screen,<sp/>return<sp/>plain<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/GUI.ino"/>
+  </compounddef>
+</doxygen>

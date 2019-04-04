@@ -1,7 +1,9 @@
-//================================Config.h=============================
-// Handles SPIFFS filesystem, loading of configuration files, saving of configuration files.
-//=====================================================================
+/**
+    \file Config.ino
+    Handles SPIFFS filesystem, loading of configuration files, saving of configuration files.
+*/
 
+/*! Try to initialize the filesystem. Format the SPIFFS on error and try again (this is normal for first use). */
 void initFS() {
   Serial.println("[INFO] Mounting filesystem...");
   if (!SPIFFS.begin()) {
@@ -16,6 +18,7 @@ void initFS() {
   delay(10);
 }
 
+/*! Try to load the configuration JSON file contents into their variables. */
 bool loadConfig() {
   File configFile = SPIFFS.open("/config.json", "r");
   if (!configFile) {
@@ -64,6 +67,8 @@ bool loadConfig() {
   //Serial.println();
   return true;
 }
+
+/*! Save the config variable to the configuration JSON file. */
 bool saveConfig() {
   StaticJsonBuffer<5000> jsonBuffer;
   JsonObject& json = jsonBuffer.createObject();
@@ -106,6 +111,7 @@ bool saveConfig() {
   return true;
 }
 
+/*! ROT13 encryption algorithm. */
 String rot(String in) {
   String out;
   for (int i = 0; i < in.length(); ++i) {

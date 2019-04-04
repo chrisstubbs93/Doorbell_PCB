@@ -1,113 +1,797 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Lecturer Availability Door Announcer documentation &#8212; Lecturer Availability Door Announcer 0.0.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecturer Availability Door Announcer documentation &mdash; Lecturer Availability Door Announcer 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="wy-grid-for-nav">
 
-  </head><body>
-  
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+          
+            <a href="#" class="icon icon-home"> Lecturer Availability Door Announcer
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Lecturer Availability Door Announcer documentation</a><ul>
+<li><a class="reference internal" href="#abstract">Abstract</a></li>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#hardware">Hardware</a></li>
+<li><a class="reference internal" href="#source-code-documentation">Source code documentation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Lecturer Availability Door Announcer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Lecturer Availability Door Announcer documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="lecturer-availability-door-announcer-documentation">
 <h1>Lecturer Availability Door Announcer documentation<a class="headerlink" href="#lecturer-availability-door-announcer-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>Traditionally a student would have to summon a lecturer in a shared office by knocking on the door. This disturbs the other lecturers in the office, and the desired lecturer may not even be present.</p>
+<p>A system to alert a specific lecturer to the presence of someone at the door is not currently widely adopted. To investigate how such a system should work, it is crucial to gain insight into the current solutions to the individual technical challenges.</p>
+</div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>This is the introduction</p>
-<blockquote>
-<div>print ‘hello’
-&gt;&gt; hello</div></blockquote>
-<div class="toctree-wrapper compound">
+<p>The main aim of this project is to develop a battery-operated device with inputs to receive interaction from the student, and outputs to feed back to the student and lecturer. It is to be fixed to the inside of the door of a multiple occupied lecturer’s room. Through this device anyone outside the door shall be able to raise the attention of a single lecturer, and not to everyone in the room (which is what knocking at the door does). When a student operates the device, a notification should be sent to the appropriate lecturer’s mobile phone. It should also be possible for students to see the status/availability of a lecturer from the device, which the lecturer can set.</p>
 </div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ESP32-WROOM-32</p></li>
+<li><p>Waveshare 2.9” B/W ePaper</p></li>
+<li><p>TCA9548A i2c multiplexer</p></li>
+<li><p>VCNL4020 IR proximity sensor(s)</p></li>
+</ul>
+</div>
+<div class="section" id="source-code-documentation">
+<h2>Source code documentation<a class="headerlink" href="#source-code-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="file">
+<dt>
+<span class="target" id="bitmaps_8h"></span><em>file</em> <code class="descname">bitmaps.h</code></dt>
+<dd><p>Stores bitmap images for display in program memory </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt>
+<span class="target" id="bitmaps_8h_1a87aad9b0c96f3c938e2558d874b71f2f"></span><code class="descname">const unsigned char BmpLSBU [] PROGMEM</code></dt>
+<dd><p>The LSBU logo stored as an array.</p>
+<p>Generated from <a class="reference external" href="http://javl.github.io/image2cpp/">http://javl.github.io/image2cpp/</a></p>
+<p>Invert colours. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="_config_8ino"></span><em>file</em> <code class="descname">Config.ino</code></dt>
+<dd><p>Handles SPIFFS filesystem, loading of configuration files, saving of configuration files. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv46initFSv">
+<span id="_CPPv36initFSv"></span><span id="_CPPv26initFSv"></span><span id="initFS"></span><span class="target" id="_config_8ino_1a71502ea2a2f3c2ba9d3caaeb1655c997"></span>void <code class="descname">initFS</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv46initFSv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Try to initialize the filesystem. Format the SPIFFS on error and try again (this is normal for first use). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410loadConfigv">
+<span id="_CPPv310loadConfigv"></span><span id="_CPPv210loadConfigv"></span><span id="loadConfig"></span><span class="target" id="_config_8ino_1a391c03491ec82959f142de94af1ff7a2"></span>bool <code class="descname">loadConfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410loadConfigv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Try to load the configuration JSON file contents into their variables. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410saveConfigv">
+<span id="_CPPv310saveConfigv"></span><span id="_CPPv210saveConfigv"></span><span id="saveConfig"></span><span class="target" id="_config_8ino_1a185d7f2d6e216d095034529d9e9d6776"></span>bool <code class="descname">saveConfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410saveConfigv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save the config variable to the configuration JSON file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv43rot6String">
+<span id="_CPPv33rot6String"></span><span id="_CPPv23rot6String"></span><span id="rot__String"></span><span class="target" id="_config_8ino_1a531e35e139960a373d7880a09a0c41ec"></span>String <code class="descname">rot</code><span class="sig-paren">(</span>String <em>in</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv43rot6String" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>ROT13 encryption algorithm. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="_doorbell_8ino"></span><em>file</em> <code class="descname">Doorbell.ino</code></dt>
+<dd><p>Main file for the Lecturer Availability Door Announcer final year BEng project by Chris Stubbs. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="_doorbell_8ino_1acfc2fc23d5e539f2d0b9ed6091a6c24e"></span><code class="descname">GxIO_Class io(SPI, 15, 4, 5)</code></dt>
+<dd><p>Define the hardware pins used by the ePaper display for SPI. 15=CS, 4=DC, 5=RST. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="_doorbell_8ino_1a316a5fbb017a97dc4c8a9f1383f7b4b0"></span><code class="descname">GxEPD_Class display(io, 5, 16)</code></dt>
+<dd><p>Define the hardware pins used by the ePaper display for control. 5=RST, 16=BUSY.. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="_doorbell_8ino_1ae4f1791fd59f61a92af54c63a79ac112"></span><code class="descname">WebServer webServer(80)</code></dt>
+<dd><p>Web server used for setup wizard and config interface. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv45setupv">
+<span id="_CPPv35setupv"></span><span id="_CPPv25setupv"></span><span id="setup"></span><span class="target" id="_doorbell_8ino_1a4fc01d736fe50cf5b977f755b675f11d"></span>void <code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45setupv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Setup function runs once on startup. Detect boot mode (normal or waking up from deep sleep). Perform setup. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv44loopv">
+<span id="_CPPv34loopv"></span><span id="_CPPv24loopv"></span><span id="loop"></span><span class="target" id="_doorbell_8ino_1afe461d27b9c48d5921c00d521181f12f"></span>void <code class="descname">loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44loopv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Loop function runs continuously. Poll devices and run background tasks. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt id="_CPPv49dnsServer">
+<span id="_CPPv39dnsServer"></span><span id="_CPPv29dnsServer"></span><span id="dnsServer__DNSServer"></span><span class="target" id="_doorbell_8ino_1a52c5394c861b62875409604eedc0fcd7"></span>DNSServer <code class="descname">dnsServer</code><a class="headerlink" href="#_CPPv49dnsServer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DNS server used for captive portal in setup mode. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv411settingMode">
+<span id="_CPPv311settingMode"></span><span id="_CPPv211settingMode"></span><span id="settingMode__boolean"></span><span class="target" id="_doorbell_8ino_1a5c64e18eb1e6df97544212e53facd531"></span>boolean <code class="descname">settingMode</code><a class="headerlink" href="#_CPPv411settingMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is the device in setup wizard mode (true) or normal mode (false)? </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv49doorbells">
+<span id="_CPPv39doorbells"></span><span id="_CPPv29doorbells"></span><span id="doorbells__i"></span><span class="target" id="_doorbell_8ino_1acb9e18b536f640e95c60f0c3ebe17766"></span>int <code class="descname">doorbells</code> = 0<a class="headerlink" href="#_CPPv49doorbells" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of VCNL4020 sensors detected. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv48sleeping">
+<span id="_CPPv38sleeping"></span><span id="_CPPv28sleeping"></span><span id="sleeping__b"></span><span class="target" id="_doorbell_8ino_1afc77d1fb95870b5511dffff362261cb6"></span>bool <code class="descname">sleeping</code> = false<a class="headerlink" href="#_CPPv48sleeping" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is the device in or about to enter deep sleep mode for power saving? </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="_g_u_i_8ino"></span><em>file</em> <code class="descname">GUI.ino</code></dt>
+<dd><p>Handles drawing of GUI elements on ePaper display </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv414displayVersionv">
+<span id="_CPPv314displayVersionv"></span><span id="_CPPv214displayVersionv"></span><span id="displayVersion"></span><span class="target" id="_g_u_i_8ino_1a6d2ae46e53ca384472c7c54d3a75ef38"></span>void <code class="descname">displayVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414displayVersionv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Displays an LSBU splashscreen followed by a description/version no. splashscreen. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48errorMsg6String">
+<span id="_CPPv38errorMsg6String"></span><span id="_CPPv28errorMsg6String"></span><span id="errorMsg__String"></span><span class="target" id="_g_u_i_8ino_1a49c15add2b3fb1bab622467ffcf6584a"></span>void <code class="descname">errorMsg</code><span class="sig-paren">(</span>String <em>ermsg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48errorMsg6String" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Displays a full screen error message with title and content for 5 seconds. Can be dismissed by pressing either button. Message is also printed to the serial port and the ERROR LED flashed. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48setupMsg6String">
+<span id="_CPPv38setupMsg6String"></span><span id="_CPPv28setupMsg6String"></span><span id="setupMsg__String"></span><span class="target" id="_g_u_i_8ino_1ae2698a607f6e5be64f909e7ef2b9a579"></span>void <code class="descname">setupMsg</code><span class="sig-paren">(</span>String <em>apSSID</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48setupMsg6String" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Instructs user to connect to access point and run setup wizard. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410writeNamesv">
+<span id="_CPPv310writeNamesv"></span><span id="_CPPv210writeNamesv"></span><span id="writeNames"></span><span class="target" id="_g_u_i_8ino_1aa1bc5d27389d6a706f36fd90fb5e9fde"></span>void <code class="descname">writeNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410writeNamesv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write the room name, all lecturer names, status, battery percentage and sleep status to the display. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48addToLogK6String">
+<span id="_CPPv38addToLogK6String"></span><span id="_CPPv28addToLogK6String"></span><span id="addToLog__StringC"></span><span class="target" id="_g_u_i_8ino_1a138c0032519f7273647d99d811789e9d"></span>void <code class="descname">addToLog</code><span class="sig-paren">(</span><em class="property">const</em> String <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48addToLogK6String" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Shuffle the log buffer and add a new time. Display log. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410displayLogv">
+<span id="_CPPv310displayLogv"></span><span id="_CPPv210displayLogv"></span><span id="displayLog"></span><span class="target" id="_g_u_i_8ino_1a08da0e1bab37e09ab0e424b1693c2fe0"></span>void <code class="descname">displayLog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410displayLogv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Display all log items in the buffer, most recent at the bottom. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48clearLogv">
+<span id="_CPPv38clearLogv"></span><span id="_CPPv28clearLogv"></span><span id="clearLog"></span><span class="target" id="_g_u_i_8ino_1ae2d5212eb62104cb3219318f03f23734"></span>void <code class="descname">clearLog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48clearLogv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove all entries in the log buffer. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48showInfov">
+<span id="_CPPv38showInfov"></span><span id="_CPPv28showInfov"></span><span id="showInfo"></span><span class="target" id="_g_u_i_8ino_1a6da7bf7685a4f65561ec15045a11b993"></span>void <code class="descname">showInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48showInfov" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Shows simple menu with FW version, IP, n sensors found. Also allows user to initiate a reset of the device configuration. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48wordWrap6String">
+<span id="_CPPv38wordWrap6String"></span><span id="_CPPv28wordWrap6String"></span><span id="wordWrap__String"></span><span class="target" id="_g_u_i_8ino_1ab945e0c8dbab7335f8dab9a01363277e"></span>String <code class="descname">wordWrap</code><span class="sig-paren">(</span>String <em>in</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48wordWrap6String" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Wrap words around spaces to print nicely on screen. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt id="_CPPv49logbuffer">
+<span id="_CPPv39logbuffer"></span><span id="_CPPv29logbuffer"></span><span id="logbuffer__StringA"></span><span class="target" id="_g_u_i_8ino_1a5ec41fe3f7e063b47e8647028289549f"></span>String <code class="descname">logbuffer</code>[8] = {&quot;&quot;, , , , , , , }<a class="headerlink" href="#_CPPv49logbuffer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Buffer of last 8 log messages to show on screen. FIFO queue. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv44font">
+<span id="_CPPv34font"></span><span id="_CPPv24font"></span><span id="font__GFXfontCP"></span><span class="target" id="_g_u_i_8ino_1aef0f17f605f3193c781b789597ead6de"></span><em class="property">const</em> GFXfont *<code class="descname">font</code> = &amp;FreeMonoBold9pt7b<a class="headerlink" href="#_CPPv44font" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Define the font used for the GUI. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="_hardware_8ino"></span><em>file</em> <code class="descname">Hardware.ino</code></dt>
+<dd><p>Handles I2C multiplexer, connection to VCNL IR proximity sensors, proximity sensor related functions, initialisation of GPIO, scanning of buttons. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv48initGPIOv">
+<span id="_CPPv38initGPIOv"></span><span id="_CPPv28initGPIOv"></span><span id="initGPIO"></span><span class="target" id="_hardware_8ino_1ae8297bf2b99a2ad67af6f9a421ea4b16"></span>void <code class="descname">initGPIO</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48initGPIOv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialise the GPIO pins. This should be run AFTER initialising the display so the MISO pin can be detached from the pin matrix and reused. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv47setVCOMh">
+<span id="_CPPv37setVCOMh"></span><span id="_CPPv27setVCOMh"></span><span id="setVCOM__unsigned-c"></span><span class="target" id="_hardware_8ino_1afa31143bec2c1e8b0b40e5806275fe66"></span>void <code class="descname">setVCOM</code><span class="sig-paren">(</span>unsigned char <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47setVCOMh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the VCOM. This isn’t normally needed unless the ePaper is particularly bad. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv49tcaselect7uint8_t">
+<span id="_CPPv39tcaselect7uint8_t"></span><span id="_CPPv29tcaselect7uint8_t"></span><span id="tcaselect__uint8_t"></span><span class="target" id="_hardware_8ino_1aa8d3539c1351069c65956d2dad78bb6c"></span>void <code class="descname">tcaselect</code><span class="sig-paren">(</span>uint8_t <em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49tcaselect7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Selects which i2c sub-bus on the mux for a specific sensor to connect to and checks it, retrying if it’s not correct. (input 0…7) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv46tcagetv">
+<span id="_CPPv36tcagetv"></span><span id="_CPPv26tcagetv"></span><span id="tcaget"></span><span class="target" id="_hardware_8ino_1a0fc8cb706c907413f791d3cd61d0a72b"></span>int <code class="descname">tcaget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv46tcagetv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check the current i2c sub-bus for a specific sensor. Output 0…7 </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411detectVCNLsv">
+<span id="_CPPv311detectVCNLsv"></span><span id="_CPPv211detectVCNLsv"></span><span id="detectVCNLs"></span><span class="target" id="_hardware_8ino_1a8bd4857b6377960b5d845d5035bd0243"></span>void <code class="descname">detectVCNLs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411detectVCNLsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Attempt to initialise connected VCNL’s one by one </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv414calibrateVCNLsv">
+<span id="_CPPv314calibrateVCNLsv"></span><span id="_CPPv214calibrateVCNLsv"></span><span id="calibrateVCNLs"></span><span class="target" id="_hardware_8ino_1ab465fde968855441f09ae803a25261a8"></span>void <code class="descname">calibrateVCNLs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414calibrateVCNLsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calibrate VCNL threshold by averaging N_THRES_SAMPLES samples and multiplying by thres </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv412checkButtonsv">
+<span id="_CPPv312checkButtonsv"></span><span id="_CPPv212checkButtonsv"></span><span id="checkButtons"></span><span class="target" id="_hardware_8ino_1aa55f0755520915538688d090d46dd539"></span>void <code class="descname">checkButtons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412checkButtonsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if hardware buttons are pressed and run actions. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411manageSleepv">
+<span id="_CPPv311manageSleepv"></span><span id="_CPPv211manageSleepv"></span><span id="manageSleep"></span><span class="target" id="_hardware_8ino_1ad4c5e747325f2adbdafd68b6c6489e45"></span>void <code class="descname">manageSleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411manageSleepv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determine if device should enter deep sleep for power saving. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410entersleepv">
+<span id="_CPPv310entersleepv"></span><span id="_CPPv210entersleepv"></span><span id="entersleep"></span><span class="target" id="_hardware_8ino_1a849615dc867638f36cb84b744badf221"></span>void <code class="descname">entersleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410entersleepv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set up interrupts to wake device, then go to deep sleep for power saving. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv413wakeup_reasonv">
+<span id="_CPPv313wakeup_reasonv"></span><span id="_CPPv213wakeup_reasonv"></span><span id="wakeup_reason"></span><span class="target" id="_hardware_8ino_1ad8516e8020f21b3133a73c8ae31728ad"></span>void <code class="descname">wakeup_reason</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413wakeup_reasonv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Print the reason for wakeup to the serial port. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48bootmodev">
+<span id="_CPPv38bootmodev"></span><span id="_CPPv28bootmodev"></span><span id="bootmode"></span><span class="target" id="_hardware_8ino_1a5d34488889bea2a689fec065f2a1a063"></span>int <code class="descname">bootmode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48bootmodev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determine type of boot mode. 1 = sensor interrupt, 2 = button interrupt, 3 = periodic timer wakeup, 6 = normal startup. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv49scanVCNLsv">
+<span id="_CPPv39scanVCNLsv"></span><span id="_CPPv29scanVCNLsv"></span><span id="scanVCNLs"></span><span class="target" id="_hardware_8ino_1a1d0e244aa65596a3fe94bf5c1dec999c"></span>void <code class="descname">scanVCNLs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49scanVCNLsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Take reading from each sensor. Notify lecturer if above threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv418setupVCNLinterruptv">
+<span id="_CPPv318setupVCNLinterruptv"></span><span id="_CPPv218setupVCNLinterruptv"></span><span id="setupVCNLinterrupt"></span><span class="target" id="_hardware_8ino_1ad64732af63d21d2459a2b99a71007975"></span>void <code class="descname">setupVCNLinterrupt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418setupVCNLinterruptv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set up interrupt on each device when threshold exceeded. (allows detection of touch interaction when CPU asleep). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv422getBackgroundProximityv">
+<span id="_CPPv322getBackgroundProximityv"></span><span id="_CPPv222getBackgroundProximityv"></span><span id="getBackgroundProximity"></span><span class="target" id="_hardware_8ino_1aeedc536a910003503ddc86c3a455d15b"></span>uint16_t <code class="descname">getBackgroundProximity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422getBackgroundProximityv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Take a proximity reading without disturbing the interrupt setup. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv415interruptSourcev">
+<span id="_CPPv315interruptSourcev"></span><span id="_CPPv215interruptSourcev"></span><span id="interruptSource"></span><span class="target" id="_hardware_8ino_1aa94b41c6422176525df39bf97ab00a44"></span>int <code class="descname">interruptSource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415interruptSourcev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determine which sensor caused a hardware interrupt. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt id="_CPPv47average">
+<span id="_CPPv37average"></span><span id="_CPPv27average"></span><span id="average__lA"></span><span class="target" id="_hardware_8ino_1a23fc805921fc5a0002591c4189b52b1d"></span>long <code class="descname">average</code>[] = {0, , , , , , , }<a class="headerlink" href="#_CPPv47average" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Array of average reading of all sensors. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv49threshold">
+<span id="_CPPv39threshold"></span><span id="_CPPv29threshold"></span><span id="threshold__lA"></span><span class="target" id="_hardware_8ino_1ac32fe680767b975eb3dcffe87f347a85"></span>long <code class="descname">threshold</code>[] = {0, , , , , , , }<a class="headerlink" href="#_CPPv49threshold" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Array of threshold limits to trigger each sensor. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv47reading">
+<span id="_CPPv37reading"></span><span id="_CPPv27reading"></span><span id="reading__lA"></span><span class="target" id="_hardware_8ino_1ab219875e305edef08cd33f81d004c80a"></span>long <code class="descname">reading</code>[] = {0, , , , , , , }<a class="headerlink" href="#_CPPv47reading" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Current reading of each sensor. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv44vcnl">
+<span id="_CPPv34vcnl"></span><span id="_CPPv24vcnl"></span><span id="vcnl__Adafruit_VCNL4010"></span><span class="target" id="_hardware_8ino_1af8997547c94d8bb6ee460b3538e4cd11"></span>Adafruit_VCNL4010 <code class="descname">vcnl</code><a class="headerlink" href="#_CPPv44vcnl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Object for the VNCL sensor. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv411lastPressed">
+<span id="_CPPv311lastPressed"></span><span id="_CPPv211lastPressed"></span><span id="lastPressed__unsigned-l"></span><span class="target" id="_hardware_8ino_1ac725663f0bb1d8d2b904d4440bcc38d1"></span>unsigned long <code class="descname">lastPressed</code> = 0<a class="headerlink" href="#_CPPv411lastPressed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Time in ms since boot that a sensor was last pressed. Used to determine when to enter sleep mode after inactivity. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="_settings__template_8h"></span><em>file</em> <code class="descname">Settings_template.h</code></dt>
+<dd><p>Contains user settings and presets that can be changed for build. Rename this file to Settings.h. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt id="_CPPv44ssid">
+<span id="_CPPv34ssid"></span><span id="_CPPv24ssid"></span><span id="ssid__String"></span><span class="target" id="_settings__template_8h_1a9223d0e377e234d679946b194a81dcf3"></span>String <code class="descname">ssid</code> = &quot;&quot;<a class="headerlink" href="#_CPPv44ssid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>WiFi SSID the device will connect to. Set from setup wizard. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv47wifipsk">
+<span id="_CPPv37wifipsk"></span><span id="_CPPv27wifipsk"></span><span id="wifipsk__String"></span><span class="target" id="_settings__template_8h_1ac3c66d10da8649c07319cc2813bd5e5a"></span>String <code class="descname">wifipsk</code> = &quot;&quot;<a class="headerlink" href="#_CPPv47wifipsk" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>WiFi pre-shared key (password) the device will connect with. Set from setup wizard. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv412EAP_IDENTITY">
+<span id="_CPPv312EAP_IDENTITY"></span><span id="_CPPv212EAP_IDENTITY"></span><span id="EAP_IDENTITY__String"></span><span class="target" id="_settings__template_8h_1a385e90665734c058bd1dcdf5ee1f64f3"></span>String <code class="descname">EAP_IDENTITY</code> = &quot;&quot;<a class="headerlink" href="#_CPPv412EAP_IDENTITY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>WPA2-ENTERPRISE (eduroam) email address. Set from setup wizard. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv412EAP_PASSWORD">
+<span id="_CPPv312EAP_PASSWORD"></span><span id="_CPPv212EAP_PASSWORD"></span><span id="EAP_PASSWORD__String"></span><span class="target" id="_settings__template_8h_1af5df74874c991138efe45150fab7aa13"></span>String <code class="descname">EAP_PASSWORD</code> = &quot;&quot;<a class="headerlink" href="#_CPPv412EAP_PASSWORD" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>WPA2-ENTERPRISE (eduroam) password. Set from setup wizard. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv412www_username">
+<span id="_CPPv312www_username"></span><span id="_CPPv212www_username"></span><span id="www_username__String"></span><span class="target" id="_settings__template_8h_1a340468ccda3167a9550ad102019a00bc"></span>String <code class="descname">www_username</code> = &quot;admin&quot;<a class="headerlink" href="#_CPPv412www_username" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defualt username for web config interface. Set from web config interface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv412www_password">
+<span id="_CPPv312www_password"></span><span id="_CPPv212www_password"></span><span id="www_password__String"></span><span class="target" id="_settings__template_8h_1a05f3047c0f2b2de07e88277f0cc21e2d"></span>String <code class="descname">www_password</code> = &quot;esp32&quot;<a class="headerlink" href="#_CPPv412www_password" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defualt password for web config interface. Set from web config interface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv44room">
+<span id="_CPPv34room"></span><span id="_CPPv24room"></span><span id="room__String"></span><span class="target" id="_settings__template_8h_1a2e8bcac3a4bc71ac4c9b9b5334803a56"></span>String <code class="descname">room</code> = &quot;T815&quot;<a class="headerlink" href="#_CPPv44room" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Name of room device is fixed to. Set from web config interface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv413lecturerNames">
+<span id="_CPPv313lecturerNames"></span><span id="_CPPv213lecturerNames"></span><span id="lecturerNames__StringA"></span><span class="target" id="_settings__template_8h_1aef601240759de95e43a915cc331a959b"></span>String <code class="descname">lecturerNames</code>[5] = {&quot;Name1&quot;, , , , }<a class="headerlink" href="#_CPPv413lecturerNames" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Array of lectureres names. Set from web config interface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv416lecturerIFTTkeys">
+<span id="_CPPv316lecturerIFTTkeys"></span><span id="_CPPv216lecturerIFTTkeys"></span><span id="lecturerIFTTkeys__StringA"></span><span class="target" id="_settings__template_8h_1aefd5777cd3258e782c87846e6c367b31"></span>String <code class="descname">lecturerIFTTkeys</code>[5] = {&quot;Key1&quot;, , , , }<a class="headerlink" href="#_CPPv416lecturerIFTTkeys" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Array of lecturer IFTTT keys. Set from web config interface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv414lecturerStatus">
+<span id="_CPPv314lecturerStatus"></span><span id="_CPPv214lecturerStatus"></span><span id="lecturerStatus__StringA"></span><span class="target" id="_settings__template_8h_1a66475c2fb52f85366679abd0717c3f0a"></span>String <code class="descname">lecturerStatus</code>[5] = {&quot;Available&quot;, , , , }<a class="headerlink" href="#_CPPv414lecturerStatus" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Array of lecturer status. Set from web config interface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv45thres">
+<span id="_CPPv35thres"></span><span id="_CPPv25thres"></span><span id="thres__float"></span><span class="target" id="_settings__template_8h_1a344ac98449beac1cdf80f0732b70fd9f"></span>float <code class="descname">thres</code> = 2<a class="headerlink" href="#_CPPv45thres" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Threshold for sensor. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv49busyNotif">
+<span id="_CPPv39busyNotif"></span><span id="_CPPv29busyNotif"></span><span id="busyNotif__b"></span><span class="target" id="_settings__template_8h_1abc11962b1ccc3df5f1ce8ad620c977d4"></span>bool <code class="descname">busyNotif</code> = false<a class="headerlink" href="#_CPPv49busyNotif" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Notify lecturer anyway if they are busy? </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv49powerSave">
+<span id="_CPPv39powerSave"></span><span id="_CPPv29powerSave"></span><span id="powerSave__b"></span><span class="target" id="_settings__template_8h_1ab34445ad8a6760bf783c4a21677ceb67"></span>bool <code class="descname">powerSave</code> = false<a class="headerlink" href="#_CPPv49powerSave" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enter power saving mode after inactivity? </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv410sleepDelay">
+<span id="_CPPv310sleepDelay"></span><span id="_CPPv210sleepDelay"></span><span id="sleepDelay__i"></span><span class="target" id="_settings__template_8h_1a42ee2cfea91e6f7bef6775b2217437ab"></span>int <code class="descname">sleepDelay</code> = 15<a class="headerlink" href="#_CPPv410sleepDelay" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Period of inactivity in mins before entering power save mode. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="file">
+<dt>
+<span class="target" id="_web_8ino"></span><em>file</em> <code class="descname">Web.ino</code></dt>
+<dd><p>Handles WiFi access point, WiFi client, DNS server, webservers for initial setup wizard and configuration, IFTTT integration. Also contains all HTML for webservers </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt>
+<span class="target" id="_web_8ino_1a5090b163ff08822a787a45da8b7ed87a"></span><code class="descname">const IPAddress apIP(192, 168, 1, 1)</code></dt>
+<dd><p>Fixed IP address of device for setup wizard in AP mode. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv49wifiTasksv">
+<span id="_CPPv39wifiTasksv"></span><span id="_CPPv29wifiTasksv"></span><span id="wifiTasks"></span><span class="target" id="_web_8ino_1a6f6f044bce35a405bc05f223e20f8cf7"></span>void <code class="descname">wifiTasks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49wifiTasksv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Run background WiFi DNS server and webserver tasks. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv44ringKi">
+<span id="_CPPv34ringKi"></span><span id="_CPPv24ringKi"></span><span id="ring__iC"></span><span class="target" id="_web_8ino_1a4b775e1d95473a982717aaa2da30e4f5"></span>void <code class="descname">ring</code><span class="sig-paren">(</span><em class="property">const</em> int <em>bus</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44ringKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Send a webhooks request to IFTTT with the room name and appropraite lecturers key. Display status on screen. Input = 0…7. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411connectWiFiv">
+<span id="_CPPv311connectWiFiv"></span><span id="_CPPv211connectWiFiv"></span><span id="connectWiFi"></span><span class="target" id="_web_8ino_1a144025702d7aa7708d704324ecb09eff"></span>boolean <code class="descname">connectWiFi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411connectWiFiv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Attempt to connect to specified WiFi SSID. After 3 failures, default to setup wizard. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv415checkConnectionv">
+<span id="_CPPv315checkConnectionv"></span><span id="_CPPv215checkConnectionv"></span><span id="checkConnection"></span><span class="target" id="_web_8ino_1acec1ba9681e6777d66ed640286d203c7"></span>boolean <code class="descname">checkConnection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415checkConnectionv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check WiFi is connected. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv414startWebServerv">
+<span id="_CPPv314startWebServerv"></span><span id="_CPPv214startWebServerv"></span><span id="startWebServer"></span><span class="target" id="_web_8ino_1a0d04c1af31c2cdcf510d08e8a6643fa9"></span>void <code class="descname">startWebServer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414startWebServerv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Start the appropriate web server depending on if the mode is normal or setup mode. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv49setupModev">
+<span id="_CPPv39setupModev"></span><span id="_CPPv29setupModev"></span><span id="setupMode"></span><span class="target" id="_web_8ino_1a292bc11fc3dcd09074ef62051f881173"></span>void <code class="descname">setupMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49setupModev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Prepare and start the setup wizard with list of scanned SSIDs. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv48makePage6String6String">
+<span id="_CPPv38makePage6String6String"></span><span id="_CPPv28makePage6String6String"></span><span id="makePage__String.String"></span><span class="target" id="_web_8ino_1a18fa0b0ca8bd45d3e784a6fd2d888b7d"></span>String <code class="descname">makePage</code><span class="sig-paren">(</span>String <em>title</em>, String <em>contents</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48makePage6String6String" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generate basic HTML tags around content. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv49urlDecode6String">
+<span id="_CPPv39urlDecode6String"></span><span id="_CPPv29urlDecode6String"></span><span id="urlDecode__String"></span><span class="target" id="_web_8ino_1a229909254c88e9d103199da59b22bdd0"></span>String <code class="descname">urlDecode</code><span class="sig-paren">(</span>String <em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49urlDecode6String" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Replace URL encoded characters. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410handleRootv">
+<span id="_CPPv310handleRootv"></span><span id="_CPPv210handleRootv"></span><span id="handleRoot"></span><span class="target" id="_web_8ino_1a8427468f39342a1990703e9f5ce7fd29"></span>void <code class="descname">handleRoot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410handleRootv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Handle requests to the main page of the config interface. Check authentication and serve page with current variables. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv422generateStatusDropdown7uint8_t">
+<span id="_CPPv322generateStatusDropdown7uint8_t"></span><span id="_CPPv222generateStatusDropdown7uint8_t"></span><span id="generateStatusDropdown__uint8_t"></span><span class="target" id="_web_8ino_1a63f74e7b8412cefe754f74c174c0d024"></span>String <code class="descname">generateStatusDropdown</code><span class="sig-paren">(</span>uint8_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422generateStatusDropdown7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generate HTML for dropdown with status options. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv412saveSettingsv">
+<span id="_CPPv312saveSettingsv"></span><span id="_CPPv212saveSettingsv"></span><span id="saveSettings"></span><span class="target" id="_web_8ino_1ac7142ee2baa705d2dd402769467d5a4e"></span>void <code class="descname">saveSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412saveSettingsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save settings recieved from the web config interface to SPIFFS and load them into current memory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv414handleNotFoundv">
+<span id="_CPPv314handleNotFoundv"></span><span id="_CPPv214handleNotFoundv"></span><span id="handleNotFound"></span><span class="target" id="_web_8ino_1a54f2b176a577c7a89bb94da4f12cd06b"></span>void <code class="descname">handleNotFound</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414handleNotFoundv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serve error page if request is unhandled. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411handleResetv">
+<span id="_CPPv311handleResetv"></span><span id="_CPPv211handleResetv"></span><span id="handleReset"></span><span class="target" id="_web_8ino_1a28576d900afa7ce8f3f4177cb38f61b9"></span>void <code class="descname">handleReset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411handleResetv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Handle user request to reset settings and reboot device. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv415handleSetupRootv">
+<span id="_CPPv315handleSetupRootv"></span><span id="_CPPv215handleSetupRootv"></span><span id="handleSetupRoot"></span><span class="target" id="_web_8ino_1a211179d239a3a6fdc1ba1b6d7df252ae"></span>void <code class="descname">handleSetupRoot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415handleSetupRootv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serve main menu of setup wizard (WPA2-PSK / WPA2-ENTERPRISE). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv414handleSettingsv">
+<span id="_CPPv314handleSettingsv"></span><span id="_CPPv214handleSettingsv"></span><span id="handleSettings"></span><span class="target" id="_web_8ino_1af87f54300d1d09b658c30cff92a27f5b"></span>void <code class="descname">handleSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414handleSettingsv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serve menu for WPA2-PSK setup. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv413handleEduroamv">
+<span id="_CPPv313handleEduroamv"></span><span id="_CPPv213handleEduroamv"></span><span id="handleEduroam"></span><span class="target" id="_web_8ino_1ac6b09eb8896b2e7975b32c3b4c82387b"></span>void <code class="descname">handleEduroam</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413handleEduroamv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serve menu for WPA2-ENTERPRISE setup. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv411handleSetAPv">
+<span id="_CPPv311handleSetAPv"></span><span id="_CPPv211handleSetAPv"></span><span id="handleSetAP"></span><span class="target" id="_web_8ino_1abc559dd4a64f6e15aff6bb8377de1e5c"></span>void <code class="descname">handleSetAP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411handleSetAPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save settings from setup wizard and restart to use them. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt id="_CPPv46apSSID">
+<span id="_CPPv36apSSID"></span><span id="_CPPv26apSSID"></span><span id="apSSID__cCP"></span><span class="target" id="_web_8ino_1a4dc496fb2eea29ebc9e871cee941fa09"></span><em class="property">const</em> char *<code class="descname">apSSID</code> = &quot;_SETUP&quot;<a class="headerlink" href="#_CPPv46apSSID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Name of SSID for setup wizard access point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv48ssidList">
+<span id="_CPPv38ssidList"></span><span id="_CPPv28ssidList"></span><span id="ssidList__String"></span><span class="target" id="_web_8ino_1ae5d189232399d7728ea364065b9727c4"></span>String <code class="descname">ssidList</code><a class="headerlink" href="#_CPPv48ssidList" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>List of all detected SSIDs from scan. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="dir">
+<dt>
+<span class="target" id="dir_a991eec27578c865874ede3d8ec657c2"></span><em>dir</em> <code class="descname">Arduino</code></dt>
+<dd></dd></dl>
+
+<dl class="dir">
+<dt>
+<span class="target" id="dir_4270c4921cbb57b981d81aa84b179bbb"></span><em>dir</em> <code class="descname">Doorbell</code></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
 
 
+           </div>
+           
           </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Chris Stubbs
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Lecturer Availability Door Announcer documentation</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="#">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2019, Chris Stubbs.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="_sources/index.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
 
     
-
     
-  </body>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

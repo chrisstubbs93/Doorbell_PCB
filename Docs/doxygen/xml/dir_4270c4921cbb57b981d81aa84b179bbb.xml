@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="dir_4270c4921cbb57b981d81aa84b179bbb" kind="dir">
+    <compoundname>Doorbell</compoundname>
+    <innerfile refid="bitmaps_8h">bitmaps.h</innerfile>
+    <innerfile refid="_config_8ino">Config.ino</innerfile>
+    <innerfile refid="_doorbell_8ino">Doorbell.ino</innerfile>
+    <innerfile refid="_g_u_i_8ino">GUI.ino</innerfile>
+    <innerfile refid="_hardware_8ino">Hardware.ino</innerfile>
+    <innerfile refid="_settings__template_8h">Settings_template.h</innerfile>
+    <innerfile refid="_web_8ino">Web.ino</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Chris/Documents/GitHub/Doorbell/Arduino/Doorbell/"/>
+  </compounddef>
+</doxygen>
