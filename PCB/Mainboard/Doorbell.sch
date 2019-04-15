@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -14696,7 +14696,7 @@ DIN A3, landscape with extra doc field</description>
 <part name="D1" library="semicon-smd-ipc" deviceset="D-" device="SOD123" value="MBR0530T1G"/>
 <part name="R12" library="rcl" deviceset="R-EU_" device="R0603" value="0.47/3R"/>
 <part name="R13" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
-<part name="C16" library="rcl" deviceset="C-EU" device="C0603" value="4.7uF"/>
+<part name="C16" library="rcl" deviceset="C-EU" device="C0603" value="1uF"/>
 <part name="D2" library="semicon-smd-ipc" deviceset="D-" device="SOD123" value="MBR0530T1G"/>
 <part name="D3" library="semicon-smd-ipc" deviceset="D-" device="SOD123" value="MBR0530T1G"/>
 <part name="C17" library="rcl" deviceset="C-EU" device="C0603" value="100nF"/>
@@ -14705,10 +14705,10 @@ DIN A3, landscape with extra doc field</description>
 <part name="LED1" library="led" deviceset="LED" device="SML0603"/>
 <part name="R14" library="rcl" deviceset="R-EU_" device="R0603" value="0R"/>
 <part name="R15" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
-<part name="C18" library="rcl" deviceset="C-EU" device="C1206" value="10u"/>
+<part name="C18" library="rcl" deviceset="C-EU" device="C1206" value="10uF"/>
 <part name="C19" library="rcl" deviceset="C-EU" device="C0603" value="100nF"/>
-<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="1.2M"/>
-<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="220k"/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="180k"/>
 <part name="U5" library="NC7SZ08M5X" deviceset="NC7SZ08M5X" device="">
 <attribute name="DESCRIPTION" value=" "/>
 <attribute name="DIGI-KEY_PART_NUMBER" value="NC7SZ08M5XCT-ND"/>
@@ -14719,17 +14719,17 @@ DIN A3, landscape with extra doc field</description>
 <part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="U6" library="SparkFun" deviceset="TPS61200" device=""/>
 <part name="R19" library="rcl" deviceset="R-EU_" device="R0603" value="0R"/>
-<part name="R20" library="rcl" deviceset="R-EU_" device="R0603" value="220k"/>
-<part name="R21" library="rcl" deviceset="R-EU_" device="R0603" value="2M"/>
-<part name="C21" library="rcl" deviceset="C-EU" device="C0603" value="100n"/>
+<part name="R20" library="rcl" deviceset="R-EU_" device="R0603" value="150k"/>
+<part name="R21" library="rcl" deviceset="R-EU_" device="R0603" value="1M"/>
+<part name="C21" library="rcl" deviceset="C-EU" device="C0603" value="100nF"/>
 <part name="R22" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="R23" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
 <part name="R24" library="rcl" deviceset="R-EU_" device="R0603" value="0R"/>
 <part name="L2" library="inductor-neosid" deviceset="MS50" device="" value="4.7uH"/>
-<part name="U7" library="microbuilder" deviceset="VREG_SOT23-5" device="" value="AP2112-3.3"/>
-<part name="R25" library="rcl" deviceset="R-EU_" device="R0603" value="0R"/>
-<part name="R26" library="rcl" deviceset="R-EU_" device="R0603" value="0R"/>
-<part name="R27" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="U7" library="microbuilder" deviceset="VREG_SOT23-5" device="" value="AP2112-3.3 - DO NOT FIT"/>
+<part name="R25" library="rcl" deviceset="R-EU_" device="R0603" value="DO NOT FIT - 0R"/>
+<part name="R26" library="rcl" deviceset="R-EU_" device="R0603" value="DO NOT FIT - 0R"/>
+<part name="R27" library="rcl" deviceset="R-EU_" device="R0603" value="DO NOT FIT - 10k"/>
 <part name="C22" library="rcl" deviceset="C-EU" device="C1206" value="10uF"/>
 <part name="C23" library="rcl" deviceset="C-EU" device="C1206" value="10uF"/>
 <part name="D4" library="semicon-smd-ipc" deviceset="D-" device="SOD123" value="MBR0530T1G"/>
@@ -14744,10 +14744,10 @@ DIN A3, landscape with extra doc field</description>
 <part name="LED3" library="led" deviceset="LED" device="SML0603"/>
 <part name="LED4" library="led" deviceset="LED" device="SML0603"/>
 <part name="LED5" library="led" deviceset="LED" device="SML0603"/>
-<part name="R31" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
-<part name="R32" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
-<part name="R33" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
-<part name="R34" library="rcl" deviceset="R-EU_" device="R0603" value="10k"/>
+<part name="R31" library="rcl" deviceset="R-EU_" device="R0603" value="2k7"/>
+<part name="R32" library="rcl" deviceset="R-EU_" device="R0603" value="2k7"/>
+<part name="R33" library="rcl" deviceset="R-EU_" device="R0603" value="2k7"/>
+<part name="R34" library="rcl" deviceset="R-EU_" device="R0603" value="2k7"/>
 <part name="R35" library="rcl" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="R36" library="rcl" deviceset="R-EU_" device="R0603" value="100k"/>
 <part name="BATTERY" library="pinhead" deviceset="PINHD-1X2" device="/90"/>
@@ -14811,9 +14811,13 @@ DIN A3, landscape with extra doc field</description>
 <text x="-276.86" y="63.5" size="1.778" layer="94">USB Interface</text>
 <text x="-276.86" y="152.4" size="1.778" layer="94">Charging &amp; PSU</text>
 <text x="-48.26" y="152.4" size="1.778" layer="94">ePaper Driver</text>
-<text x="99.06" y="-99.06" size="2.54" layer="94">1</text>
+<text x="99.06" y="-99.06" size="2.54" layer="94">2</text>
 <text x="22.86" y="-87.63" size="2.54" layer="94">Mainboard</text>
 <text x="19.05" y="-78.74" size="2.54" layer="94">Lecturer availability door announcer</text>
+<text x="-17.78" y="81.28" size="1.778" layer="94">3R for B/W display
+0.47R for B/W/R display</text>
+<text x="-203.2" y="60.96" size="1.778" layer="94">Transistor pinout incorrect!
+Install flipped</text>
 </plain>
 <instances>
 <instance part="U1" gate="G$1" x="-101.6" y="45.72"/>
